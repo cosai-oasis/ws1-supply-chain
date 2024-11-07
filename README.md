@@ -61,3 +61,5 @@ creation.
 
 Add a Hat tip to anyone whose work/code/project inspired your work.
 
+## RFC Process
+See [RFC Template](rfcs/00-rfc-template.md).

@@ -1,3 +1,11 @@
+> [!TIP]
+> How to use this template:
+> * Create an issue using this template.
+> * Fill in the sections that are relevant to your proposal.
+> * Add the workstream chairs as reviewers.
+> * Send a note to the workstream mailing list with a link to the rfc.
+> * After 3 days, if there are no objections, the chairs will decide on the RFC inclusion.
+
 # [RFC Title]
 
 **Authors:**
