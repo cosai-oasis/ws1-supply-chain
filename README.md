@@ -14,6 +14,11 @@ This repository is for the work of the CoSAI Workstream 1, Software Supply Chain
 ### About this workstream
 Significant efforts are ongoing to extend SSDF and SLSA principles to the security of AI development. Classical software SSDF and SLSA solutions provide the foundation for secure software development yet the individual organizations continue to face challenges integrating provenance solutions into their infrastructure and development practices including determining how to address changes in provenance proofs, shifts in publisher trust, etc... As the efforts to expand provenance controls into the AI domain advance, this CoSAI workstream will focus on lowering the barriers to AI provenance adoption and risk management. Further information can be found [here](https://github.com/cosai-oasis/oasis-open-project/blob/main/WORKSTREAMS.md).
 
+### Workstream Leads
+* Andre Elizonod, Wiz
+* Jay White, Microsoft
+* Matt Maloney, Cohere
+
 <!--## Badges [optional – TBD]
 
 Using badges is optional, but they are a nice way to show some key facts and stats about your project at a glance. There are badges for all kinds of things relating to your repository, e.g. to show the license you're using, the programming language, the number of forks, or a CI badge to show build/test status. Be mindful not to use too many badges. You can use [Shields](http://shields.io/) to add some to your README. Many services also have instructions for adding a badge. Check out the README of the Open Cybersecurity Alliance project [Kestrel](https://github.com/opencybersecurityalliance/kestrel-lang) to see badges in action.
