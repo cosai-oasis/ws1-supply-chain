@@ -1,4 +1,4 @@
-<img src="https://github.com/cosai-oasis/oasis-open-project/blob/main/artwork/cosai-logo.png" width="400">
+<img src="https://github.com/cosai-oasis/oasis-open-project/blob/main/artwork/cosai-logo.png" width="150">
 
 <!--[**Note:** This template is provided to give you a good idea about the kind of information you should include in a README.md file as a best practice. You know your project inside-out. Write your readme file for someone who doesn't know anything about it. What do you want people to know about your project who are just coming across it for the first time? OASIS Staff are happy to collaborate with you as well.
 
