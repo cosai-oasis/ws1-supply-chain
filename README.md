@@ -15,7 +15,7 @@ This repository is for the work of the CoSAI Workstream 1, Software Supply Chain
 Significant efforts are ongoing to extend SSDF and SLSA principles to the security of AI development. Classical software SSDF and SLSA solutions provide the foundation for secure software development yet the individual organizations continue to face challenges integrating provenance solutions into their infrastructure and development practices including determining how to address changes in provenance proofs, shifts in publisher trust, etc... As the efforts to expand provenance controls into the AI domain advance, this CoSAI workstream will focus on lowering the barriers to AI provenance adoption and risk management. Further information can be found [here](https://github.com/cosai-oasis/oasis-open-project/blob/main/WORKSTREAMS.md).
 
 ### Workstream Leads
-* Andre Elizonod, Wiz
+* Andre Elizondo, Wiz
 * Jay White, Microsoft
 * Matt Maloney, Cohere
 
