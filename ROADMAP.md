@@ -6,9 +6,9 @@ This roadmap intends to define the short, medium, and long term deliverables and
 ## Active Themes
 
 ### Model Generation
-
-
-### Model Integration
-
-
-### Model Consumption
+* [Signing ML Artifacts](https://github.com/cosai-oasis/ws1-supply-chain/issues/4)
+* [Establish Risks & Controls](https://github.com/cosai-oasis/ws1-supply-chain/issues/2)
+* [Mapping of Mitigation Methods To Address Threats](https://github.com/cosai-oasis/ws1-supply-chain/issues/6)
+### Model Integration & Consumption
+* [Machine Readable Model Cards](https://github.com/cosai-oasis/ws1-supply-chain/issues/7)
+* [Establish Trust Chain Levels for AI Supply Chain](https://github.com/cosai-oasis/ws1-supply-chain/issues/5)
