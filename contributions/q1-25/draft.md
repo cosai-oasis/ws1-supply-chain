@@ -5,11 +5,16 @@ Summary of the technical purpose of the document.
 
 ## 1. Introduction
 
-### 1.1 Scope of this paper
+Threat modeling is a critical process for ensuring the security and resilience of AI systems, particularly as these systems become increasingly integrated into complex software ecosystems. While threat modeling is a common practice in developing software, AI systems present distinct challenges and considerations. Many existing approaches fall short of addressing the unique aspects of AI model development. This paper aims to address these gaps by proposing a focused AI threat model, emphasizing model development and serving phases.
 
-### 1.2 Methodology
+### 1.1 Existing Work & Frameworks
 
 ## 2. Defining the AI Supply Chain
+
+The AI supply chain is a multifaceted ecosystem encompassing four critical dimensions: Data, Infrastructure, Application, and Model. Each of these components plays a vital role in the development, deployment, and security of AI systems. Data serves as the foundation, influencing model performance and trustworthiness, while infrastructure encompasses the computing resources, storage, and networking that support AI workloads. The application layer integrates AI models into end-user products, ensuring functionality and interaction with external systems. Finally, the model itself—comprising its architecture, training data, and fine-tuning processes—represents the core intelligence behind AI-driven solutions. A comprehensive understanding of these four dimensions is essential to securing the AI lifecycle, as vulnerabilities in any stage can propagate throughout the entire system.
+
+The following sections focus on two key stages: Model Generation and Model Integration & Consumption. Model Generation explores how AI models are trained, fine-tuned, and stored, while Model Integration & Consumption examines how these models interact with applications and users. Both stages present unique security challenges that must be addressed to ensure a resilient AI supply chain.
+
 
 ### 2.1 Model Generation
 From the supply chain point of view this translates into having a supply chain for the traditional software components (serving stack, application code, and – if implemented without AI – plugins and filters). We also need to record the supply chain for any ML model used in this process – this is what we are going to focus on for the rest of this paper.
@@ -78,9 +83,11 @@ It is also important to protect the code that describes the model. The number of
 
 Finally, when using pre-trained models, it is possible that the input model has been tampered with. The training pipeline should verify the integrity of all of its inputs, be them software artifacts, datasets or models.
 
-—-Insert mitigations--
+—-Insert mitigations—
 
 #### 3.1.3 Infrastructure
+
+In the realm of AI systems, the infrastructure supporting models and their creation is a critical component that can introduce significant risks and vulnerabilities. Infrastructure encompasses the physical and virtual resources required to develop, train, and deploy AI models, including data centers, cloud services, and network configurations. The complexity and scale of these systems make them susceptible to a variety of threats that can compromise the integrity, availability, and confidentiality of AI models they’re used to build and serve.
 
 TODO: move data, code and model storage here? Move training pipelines here? Discuss checkpoints during training, tampering the checkpoint and then crashing the training process so that it starts from an altered version.
 
@@ -92,15 +99,71 @@ TODO: Model provenance before it is ingested into the application. Discuss appli
 
 #### 3.2.1 Data
 
+[ For each “category”/piece (inputs/outputs, RAG, feedback):
+problem / approach (solution) / what to consider (high level, with ref if needed) ]
+TODO: Define the different types of attack surfaces related to data:
+1) User input and model answer, filtering needed to avoid malicious prompt injections attacks and filtering for offensive, biased, hallucinated and generally inappropriate answers
+Could be simple filtering or pull another system here
+If another system, traditional supply chain risks apply.
+Filtering should take into account regulatory requirements (the law) as well as org-specific requirements (IP
+2) For systems with a RAG component, they are subject to attacks similar to data poisoning, where the retrieval system (e.g. embeddings database) is tampered or poisoned in a way that it drifts into returning incorrect context for valid prompts.
+For Vector databases embeddings confusion, the pipeline itself, etc…
+For other datasources more traditional data poisoning
+3) Feedback poisoning, leverages weaknesses in the model monitoring or feedback capture system that injects poisoned data into the pipelines used for retraining models over time. The data is fed back into the training system and it can lead to a gradual drift of the models slowly moving over time from a “clean” state into producing biased and malicious responses.
+
+
 #### 3.2.2 Model
+
+TODO: Differentiate between various model “provenance” schemes:
+1) Model coming from an internal repository (self trained, or hosting a verified copy of a trusted model)
+2) Downloaded from public repository
+https://huggingface.co/docs/hub/security-pickle
+https://github.com/protectai/modelscan/tree/main?tab=readme-ov-file#what-models-and-frameworks-are-supported
+3) 3rd party managed service, accessed via endpoint, no access to model binaries
+Confidentiality compormised (Data ownership loss, or Cohere e.g. DeepSeek)
 
 #### 3.2.3 Infrastructure
 
+TODO: Differentiate between various infrastructure setups:
+Self-hosted on-prem (end-to-end responsibility of all components)
+Self-hosted on cloud/3rd party managed infra (shared responsibility, provider manages low-level infra, model owner manages VMs, OS, hosting middleware, API layers, networking, …)
+(Cloud) Managed service, 3rd party provider offers managed services to host, tune and have some level of control on models hosted within the managed service, model owner manages some levels of networking, authentication & authorization settings, has some limited level of control over data flows and underlying components.
+Fully managed 3rd party endpoint. The consumer essentially hits an API endpoint provided by a 3rd party with very little control over anything.
+
 #### 3.2.4 Application
+TODO:
 
 ### 4. Securing the AI Supply Chain in Real-World Scenarios
 
-#### 4.1 Executives
+#### 4.1 Exec Persona - CIO, CTP, VPoAI
+
+The software supply chain security threat has caught attention from C-level executives, leading to extensive collaboration across the industry to tackle this challenge.
+https://www.darkreading.com/application-security/software-supply-chain-concerns-reach-c-suite
+
+https://reports.weforum.org/docs/WEF_Global_Cybersecurity_Outlook_2025.pdf?utm_source=chatgpt.com
+“Of large organizations, 54% identified supply chain challenges as the biggest barrier to achieving cyber resilience.”
+
+According article by Michael Boeynaems, "[contextual] A CEO worries about threats such as ransomware or supply chain attacks"
+https://www.toreon.com/threat-modeling-insider-november-2024/
+
+Improving software supply chain security is challenging. Organizations often rely on numerous third-party components, open-source libraries, and external services. It is difficult to maintain comprehensive visibility and control over all elements. The lack of standardized security practices across the industry also contributes to inconsistent protection levels, In addition,  the rapid pace of software development can hinder timely vulnerability assessments.
+
+While security personnel and R&D play the front and center role implementing security measures, they cannot address supply chain security effectively in isolation. CEO, CIO, CTO, VP executives bring strategic vision, resource access, influence, expertise, and compliance knowledge, making their perspective and participation crucial for fostering a culture of security.
+
+The complexities of securing the AI/ML supply chain is even a bigger problem for CEO,CIO, CTO, VPoAI.  Large number of often opaque external datasets, pre-trained models, and dynamic learning processes that introduce new and evolving risks. Threats such as data poisoning, adversarial attacks, and model theft make it difficult to ensure the integrity of AI-driven decisions.
+
+Different Focus areas: 
+C-Level (CIO, CTO, VPoAI, etc.) → Define AI supply chain security strategy & governance, enforce SSDF/SLSA adoption, and ensure vendor and third-party compliance.
+Security Personas → Implement supply chain security controls, secure AI model provenance & software dependencies, and mitigate risks from third-party components.
+R&D Teams → Develop AI models using trusted datasets, verified software components, and secure development practices, ensuring supply chain integrity throughout the AI lifecycle.
+
+Examples: 
+C-Level (CIO, CTO, VPoAI, etc.) → A VPOAI (or CISO) mandates that all third-party AI models and datasets must have provenance tracking and comply with SLSA Level 3 before integration into enterprise AI systems.
+
+Security Personas → A security engineer implements cryptographic signing for AI model artifacts in the CI/CD pipeline to ensure models haven’t been tampered with before deployment.
+
+R&D Teams → An AI researcher verifies that all pre-trained models used for training comply with SSDF secure coding practices and originate from trusted sources to prevent supply chain attacks.
+
 
 #### 4.2 Security Practionioners
 
