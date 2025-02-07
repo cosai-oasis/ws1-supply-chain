@@ -1,4 +1,4 @@
-# Relase notes on the landscape paper
+# Release notes on the landscape paper
 
 ### Febraury 5th, 2025
 
