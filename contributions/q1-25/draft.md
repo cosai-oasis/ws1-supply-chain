@@ -12,9 +12,7 @@
 
 ## Abstract:
 
-## This paper explores the intricacies of threat modeling within the AI supply chain, recognizing the distinct challenges posed by AI system integration into complex software ecosystems. It underscores the necessity to address unique aspects of AI model development that are often overlooked by traditional threat modeling approaches. By presenting a specialized AI threat model that focuses on the model development and serving phases, the paper seeks to fill existing gaps and enhance the security and resilience of AI systems. Through a detailed examination of the AI supply chain, this study highlights the specific risks and threats that can emerge, advocating for a novel approach in AI threat modeling.
-
-## Status:
+This paper explores the intricacies of threat modeling within the AI supply chain, recognizing the distinct challenges posed by AI system integration into complex software ecosystems. It underscores the necessity to address unique aspects of AI model development that are often overlooked by traditional threat modeling approaches. By presenting a specialized AI threat model that focuses on the model development and serving phases, the paper seeks to fill existing gaps and enhance the security and resilience of AI systems. Through a detailed examination of the AI supply chain, this study highlights the specific risks and threats that can emerge, advocating for a novel approach in AI threat modeling.
 
 ## 1\. Introduction
 
@@ -132,7 +130,7 @@ These frameworks are crucial for fostering a secure AI ecosystem by providing st
 
 While the above frameworks are instrumental in enhancing the security posture of AI systems, it is important to be aware of their limitations. For instance, MITRE ATLAS falls short with respect to AI supply chain security because, while it effectively maps AI-specific threats and attack techniques, it lacks a structured approach to securing the entire AI development and deployment lifecycle. The framework focuses primarily on how AI systems can be attacked—such as through adversarial manipulation, data poisoning, or model inversion—but does not contextualize these threats within the broader AI supply chain. This is a crucial limitation because AI vulnerabilities often originate before deployment, such as during data collection, model training, dependency management, or third-party integrations. For example, ATLAS identifies data poisoning as a risk but does not distinguish whether the poisoning occurs at the data sourcing stage, during preprocessing, or via a compromised third-party dataset. Additionally, ATLAS does not address model provenance, cryptographic integrity verification, or the risks associated with using pre-trained models from untrusted sources. As AI systems increasingly rely on open-source tools, cloud APIs, and foundation models, these supply chain vulnerabilities become critical.
 
-\<TODO: Add description of the OWASP framework and its limitations.\>
+The [OWASP AI Exchange](https://owaspai.org/) is an open collaborative project aimed at fostering the development of security standards, best practices, and guidelines for AI systems. It provides a repository of AI-specific threats, vulnerabilities, and risk mitigations, helping organizations better understand and address security concerns in AI applications. The [OWASP Top 10 Generative AI Threats framework](https://genai.owasp.org/) focuses on the most critical security risks specific to Large Language Models (LLMs) and Generative AI. It highlights threats such as prompt injections, Insecure Output Handling, data and model poisoning, sensitive information disclosure etc., offering practical mitigations to reduce exposure to these vulnerabilities. Together, these frameworks serve as essential security references for AI developers, security practitioners, and organizations deploying AI-powered solutions. Unfortunately, the OWASP frameworks do not provide a structured framework for securing the AI supply chain. For instance, they lack a comprehensive provenance tracking system that ensures the full traceability of datasets, models, and dependencies throughout the AI supply chain.
 
 ## 3\. Risks, Threats, and Existing Mitigations
 
@@ -219,9 +217,18 @@ problem / approach (solution) / what to consider (high level, with ref if needed
 
 | Threat | Description | Mitigation | Impact |
 | :---- | :---- | :---- | :---- |
-| **Model Inversion** | Model inversion is called out as part of the supply chain security risk as the data provided at model generation or model finetuning could be exposed here. Depending on the data supply chain, this could expose confidential or PII data. |  |  |
-| **Indirect Prompt Injection** | Instructions or malicious commands the model is exposed to due to external inputs used during inference, such as RAG, web search, or tool output. Depending on the data supply chain, this could expose confidential or PII data. |  |  |
+| **Model Inversion https://owasp.org/www-project-machine-learning-security-top-10/docs/ML03\_2023-Model\_Inversion\_Attack** | Model inversion is called out as part of the supply chain security risk as the data provided at model generation or model finetuning could be exposed here. | **\-** Use differential privacy (encryption) techniques during training \-Regularly audit and monitor model outputs for potential data leaks. \- Filtering (PII or Private Data) | Depending on the data supply chain, this could expose confidential or PII data. This might compromise model integrity and user trust. |
+| **Indirect Prompt Injection** | Instructions or malicious commands the model is exposed to due to external inputs used during inference, such as RAG, web search, or tool output. | \- Implement robust access controls and authentication mechanisms for data sources. \- Use content filtering on external data sources | Depending on the data supply chain, this could expose confidential or PII data or lead to unintended model behavior. |
+| **Data Leakage (output)** | Unintended exposure of sensitive information via model’s output  | \- output filtering mechanism \-Regularly audit and monitor model outputs for potential data leaks. | Exposure of confidential or PII data or intellectual property. |
 |  |  |  |  |
+| **Data Drift**	 | Changes in input data distribution over time that can degrade model performance or The external knowledge base becomes outdated, | \- Implement continuous monitoring \- Model retraining to adapt to new data patterns. | Decrease accuracy and relevance of the model, impacting its effectiveness and reliability. |
+| **Feedback Loop Exploitation** | Manipulation of model feedback mechanisms to skew model learning and outputs. | \- Implement robust verification of feedback sources.  | Lead to gradual degradation of model performance or introduction of biases, |
+| **Feedback Data Privacy** | User feedback may contain PII or other sensitive information | \- Implement strict data anonymization techniques \- Use secure, encrypted storage for feedback data | Privacy violations and potential legal consequences |
+| **Cross RAG Contamination** | Information leakage between different RAG instances or unauthorized data mixing. | \- data isolation \- Data lineage tracking | Data privacy violations and security boundary breaches |
+| **Vector DB injection** | Manipulation of embedding vectors or metadata to affect retrieval results or inject malicious content | \- Input validation \- embedding sanitation | Compromised retrieval results and potential security vulnerabilities |
+| **Vector Space Attacks** | Exploiting similarities in embedding space to manipulate RAG system behavior or extract sensitive information | \- Embedding space monitoring  | Unauthorized data access or manipulation of system behavior |
+|  |  |  |  |
+| **Cache Poisoning** | Malicious actors injecting harmful content into AI system caches, | \- Cache validation mechanisms | Compromised system responses and potential propagation of malicious content |
 
 TODO: Define the different types of attack surfaces related to data: \- Cleanup after this has been expanded to long form  
 1\) User input and model answer, filtering needed to avoid malicious prompt injections attacks and filtering for offensive, biased, hallucinated and generally inappropriate answers
@@ -323,6 +330,8 @@ TODO: Differentiate between various model “provenance” schemes:
 
 - E.g I use a small model that is cheaper but introduces additional risks
 
+5\) Reversing or Identifying chain of thoughts 
+
 TODO : Model encryption. We should have an opinion on a set of standards for model encryption that is portable across services and market places. E.g., imagine pushing models to HuggingFace that are encrypted but can be deployed on clouds that support the necessary deployment models. 
 
 #### 3.2.3 Infrastructure
@@ -419,6 +428,14 @@ R\&D Teams → An AI researcher verifies that all pre-trained models used for tr
 ### 4.2 Security Persona \- Dir of Sec, SecEng, DevSecOps
 
 ### 4.3 R\&D \- Eng, Eng Leader, Data Scientists, AI/Machine Learning Engineers
+
+The R\&D team's primary focus is on innovation and pushing the boundaries of AI and machine learning. However, with great power comes great responsibility, especially when it comes to security. AI and machine learning researchers and engineers are often passionate about their work and highly skilled in their respective fields. However, they might not always have a comprehensive understanding of the security implications associated with their projects. This is where the outlined risks throughout all development phases can be invaluable for informing your research team. 
+
+Consider the risk of a data poisoning attack against an AI model designed to screen loan applications. An attacker, with malicious intent, gains access to the training data used for the loan application screening model. This data includes sensitive information about applicants' financial histories, credit scores, and loan repayment behaviors. The attacker or insider then manipulates this data by introducing false or biased information, aiming to influence the model's predictions.
+
+The data poisoning attack on the loan application screening model could have severe consequences. The attacker's goal to manipulate the model's predictions could lead to two extreme outcomes. Firstly, the model might automatically approve every loan application, resulting in a high volume of risky loans being issued. This could cause significant financial losses for the lender, as they would be lending to applicants with a high likelihood of default. Alternatively, the attacker could aim to make the model reject all loan applications, denying financial accessibility to legitimate borrowers. This would drive them towards informal lending sources with potentially higher interest rates, exacerbating financial strain. Both scenarios highlight the critical need for robust security measures to protect the integrity of the model and ensure fair and accurate loan assessments.
+
+To mitigate the risk of data poisoning attacks, organizations should implement robust data handling practices, including encryption, access controls, and regular security audits. Ensuring the training data is diverse and representative of the real-world population is crucial to avoid biases and manipulate the model's predictions. Continuous monitoring of the model's performance allows for prompt updates and adjustments. Collaboration between R\&D and security teams is essential to identify potential attack vectors and implement effective countermeasures, ensuring the model's resilience and accuracy in loan application screening. These risks are thoroughly detailed throughout this paper with mitigation strategies highlighted throughout. Any team developing modern models should be aware of the risks associated with their data handling, sourcing and processing.
 
 ## 5\. Conclusion
 
