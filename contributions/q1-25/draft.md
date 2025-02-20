@@ -90,9 +90,13 @@ From the supply chain point of view this translates into having a supply chain f
 
 Large models are generated via a process that has at least 3 different stages: initial training where a foundation model gets trained on large text corpora, several (at least one) step of finetuning the model for specific tasks, and, finally, deploying the model into the application.
 
+![lifecycle](../../assets/img/lifecycle.png)
+
 In general, the teams working on these stages are different and the model is stored in separate storage between the stages. The storage infrastructure is also part of the supply chain for an AI-powered application.
 
 Developing one single model, for one of the stages presented above is done via a large, iterative process:
+
+![deployment](../../assets/img/deployment.png)
 
 The training starts from collecting the datasets used in training. These datasets need to be filtered and processed to match the input shapes, eliminate duplicated data, fix incorrect information, fill in missing values, etc. This is an iterative process, taking multiple iterations, and performed via another application. The supply chain for this application needs to be considered to have a holistic view of the supply chain for the ML-powered application that the user sees. Furthermore, the data storage infrastructure is also a relevant part of the ML supply chain.
 
