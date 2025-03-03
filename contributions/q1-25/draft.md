@@ -1,4 +1,4 @@
-# Establish Risks and Controls for the AI Supply Chain {#establish-risks-and-controls-for-the-ai-supply-chain}
+# Establish Risks and Controls for the AI Supply Chain, V 1.0 -- DRAFT {#establish-risks-and-controls-for-the-ai-supply-chain}
 
 ## OASIS Open Project : [Coalition for Secure AI (CoSAI)](https://github.com/cosai-oasis) \[Workstream name\] (hyperlink to remember to update Title and Author in document Properties \!\!\!)
 
