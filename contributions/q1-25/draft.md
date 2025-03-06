@@ -349,9 +349,14 @@ As a leader looking at how to optimize the AI supply chain security of your orga
 3. Create an ethics and risk committee focused specifically on AI for your organisation  
 4. Ensure a basic level of AI understanding is present within your senior stakeholders
 
+
+
 ### 4.2 Security Practitioner {#4.2-security-practitioner}
 
-In the realm of AI security, security practitioners are a critical piece in ensuring that these advanced technologies are secure and reliable. Their role is essential, as they are tasked with implementing safeguards at every stage of the AI lifecycle, from development to deployment and beyond. While they are not directly involved in creating the models, their expertise is essential in building a robust security framework around how models are developed and consumed, 
+In the realm of AI security, security practitioners are a critical piece in ensuring that these advanced technologies are secure and reliable. Their role is essential, as they are tasked with implementing safeguards at every stage of the AI lifecycle, from development to deployment and beyond. While they are not directly involved in creating the models, their expertise is essential in building a robust security framework around how models are developed and consumed.
+
+**Note on AI Defensive Frameworks: **
+_For additional insights of the existing frameworks that security practitioners can use to protect their AI systems, please refer to CoSAI’s “Preparing Defenders for a Changing Security Landscape" workstream. This workstream provides resources that can serve as a comprehensive review of current defender frameworks (including NIST, MITRE, OWASP, and others) and details a gap analysis that complements the risk and control assessment presented in this paper._
 
 Data is the lifeblood of AI, and security practitioners are responsible for its safety. They develop comprehensive strategies to secure data at rest and in transit, ensuring compliance with data protection regulations. This includes implementing encryption techniques, access controls, and secure data storage practices. By doing so, they mitigate the risks associated with data breaches and unauthorized access. 
 
@@ -380,9 +385,15 @@ As a model developer or AI Researcher/Engineer consuming an external model in yo
 
 ## 5\. Conclusion {#5.-conclusion}
 
-AI brings new unique properties that need to be carefully accounted for when assessing risk in your applications. Over time, even more novel methods for attacking AI systems will likely be discovered which will also then need to be taken into consideration. At the same time, you still need to make sure you do not neglect ‘traditional’ threats, for example leaking infrastructure credentials where the model is run, or vulnerabilities in the tools and libraries which support the development of AI. Therefore, it is important to consider the supply chain of an AI system, namely the four constituent components, Data, Infrastructure, Application, and Model, and that you incorporate AI-specific threats and ‘traditional’ threats into the threat model that encompasses them. This document is a living document and will evolve over time as will the recommendations for the latest edition please see our github repo here. Future publications will delve into areas such as cryptographic standards/recommendations for model signing/consumption, SLSA style levels and recommendations for model development pipelines and standardized models cards and recommendations on how consumers should interpret them. We will continue to publish to our Github repo, we welcome you to follow along at [https://github.com/cosai-oasis/ws1-supply-chain](https://github.com/cosai-oasis/ws1-supply-chain).
+AI brings new unique properties that need to be carefully accounted for when assessing risk in your applications. Over time, even more novel methods for attacking AI systems will likely be discovered which will also then need to be taken into consideration. At the same time, you still need to make sure you do not neglect ‘traditional’ threats, for example leaking infrastructure credentials where the model is run, or vulnerabilities in the tools and libraries which support the development of AI. Therefore, it is important to consider the supply chain of an AI system, namely the four constituent components, Data, Infrastructure, Application, and Model, and that you incorporate AI-specific threats and ‘traditional’ threats into the threat model that encompasses them. This document is a living document and will evolve over time as will the recommendations for the latest edition please see our github repo here. 
 
- If you or your organisation would like to contribute to efforts in the space please reach out to us at [https://www.coalitionforsecureai.org/join-us/](https://www.coalitionforsecureai.org/join-us/)
+Future publications will delve into areas such as cryptographic standards/recommendations for model signing/consumption, SLSA style levels and recommendations for model development pipelines and standardized models cards and recommendations on how consumers should interpret them. 
+
+We will continue to publish to our Github repo, we welcome you to follow along at [https://github.com/cosai-oasis/ws1-supply-chain](https://github.com/cosai-oasis/ws1-supply-chain).
+
+**NOTE**: _Integrating the risk identification and control strategies discussed in this paper with the defender framework analysis and other guidance in the other CoSAI's workstreams can enable a more cohesive and adaptive security strategy for the AI supply chain._
+
+If you or your organisation would like to contribute to efforts in the space please reach out to us at [https://www.coalitionforsecureai.org/join-us/](https://www.coalitionforsecureai.org/join-us/)
 
 ## 6\. Acknowledgements {#6.-acknowledgements}
 
