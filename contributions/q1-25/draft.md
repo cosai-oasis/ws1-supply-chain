@@ -157,6 +157,9 @@ While the above frameworks are instrumental in enhancing the security posture of
 The [OWASP AI Exchange](https://owaspai.org/) is an open collaborative project aimed at fostering the development of security standards, best practices, and guidelines for AI systems. It provides a repository of AI-specific threats, vulnerabilities, and risk mitigations, helping organizations better understand and address security concerns in AI applications. The [OWASP Top 10 Generative AI Threats framework](https://genai.owasp.org/) focuses on the most critical security risks specific to Large Language Models (LLMs) and Generative AI. It highlights threats such as prompt injections, Insecure Output Handling, data and model poisoning, sensitive information disclosure etc., offering practical mitigations to   
 reduce exposure to these vulnerabilities. Together, these frameworks serve as essential security references for AI developers, security practitioners, and organizations deploying AI-powered solutions. Unfortunately, the OWASP frameworks do not provide a framework for securing the AI supply chain. For instance, they lack a comprehensive provenance tracking system that ensures the full traceability of datasets, models, and dependencies throughout the AI supply chain.
 
+**Note on AI Defensive Frameworks: **
+_For additional insights of the existing frameworks that security practitioners can use to protect their AI systems, please refer to CoSAI’s “Preparing Defenders for a Changing Security Landscape" workstream. This workstream provides resources that can serve as a comprehensive review of current defender frameworks (including NIST, MITRE, OWASP, and others) and details a gap analysis that complements the risk and control assessment presented in this paper._
+
 ## 3\. Risks, Threats, and Existing Mitigations {#3.-risks,-threats,-and-existing-mitigations}
 
 ### 3.1 Model Generation {#3.1-model-generation}
@@ -354,9 +357,6 @@ As a leader looking at how to optimize the AI supply chain security of your orga
 ### 4.2 Security Practitioner {#4.2-security-practitioner}
 
 In the realm of AI security, security practitioners are a critical piece in ensuring that these advanced technologies are secure and reliable. Their role is essential, as they are tasked with implementing safeguards at every stage of the AI lifecycle, from development to deployment and beyond. While they are not directly involved in creating the models, their expertise is essential in building a robust security framework around how models are developed and consumed.
-
-**Note on AI Defensive Frameworks: **
-_For additional insights of the existing frameworks that security practitioners can use to protect their AI systems, please refer to CoSAI’s “Preparing Defenders for a Changing Security Landscape" workstream. This workstream provides resources that can serve as a comprehensive review of current defender frameworks (including NIST, MITRE, OWASP, and others) and details a gap analysis that complements the risk and control assessment presented in this paper._
 
 Data is the lifeblood of AI, and security practitioners are responsible for its safety. They develop comprehensive strategies to secure data at rest and in transit, ensuring compliance with data protection regulations. This includes implementing encryption techniques, access controls, and secure data storage practices. By doing so, they mitigate the risks associated with data breaches and unauthorized access. 
 
