@@ -12,6 +12,8 @@ The discussion also presents personas and the roles of executive leadership, sec
 
 Through a detailed examination of the AI supply chain and the security challenges presented by an evolving ML/AI landscape, this paper highlights the specific risks and threats that can emerge, In essence, this comprehensive analysis underscores the necessity for continuous monitoring, robust security protocols, and collaborative efforts among stakeholders to ensure the safe and ethical deployment of AI technologies.
 
+**NOTE**: In recognition of the rapidly evolving nature of AI and cybersecurity, this document is intended as a living resource. The Coalition for Secure AI (CoSAI) commits to continually updating its content to reflect emerging technologies, new threat vectors, and evolving best practices, ensuring that our guidance remains current and actionable for all stakeholders.
+
 
 [1\. Introduction](#1.-introduction)
 
