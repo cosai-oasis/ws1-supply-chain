@@ -41,7 +41,7 @@ Please make sure to update it on a regular basis – when new files or folder ar
 
 ## Contributing
 
-Please see the [CoSAI Contributing policy](./CONTRIBUTING.md) for more details.
+Check out our [onboarding guidance for new participants](https://github.com/cosai-oasis/oasis-open-project/blob/main/ONBOARDING.md) and please see the [CoSAI Contributing policy](./CONTRIBUTING.md) for more details.
 
 <!-- Give a brief explanation of what kind of contributions you are looking for and what your requirements are for accepting them. Then link to
 [CONTRIBUTING.md](link to your contributing.md file) for more information and also add a link to [CODE_OF_CONDUCT](link to your code_of_conduct.md file).-->
