@@ -148,13 +148,13 @@ Today's AI landscape is dominated by Generative AI, particularly Large Language 
 
 Different teams typically handle each stage, with models stored in separate infrastructure between stages. This storage infrastructure itself represents a critical part of the AI supply chain, often involving specialized formats (safetensors, GGUF, ONNX) and large binary weights files. For example, misconfigured storage permissions or inadequate cryptographic signing could allow a malicious insider to manipulate model weights, compromising numerous downstream applications without detection.
 
-![][image1]
+![lifecycle](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/assets/img/lifecycle.png)
 
 #### The Model Development Process
 
 Model development begins with data collection from diverse sources across the internet. This data requires thorough cleaning, filtering, and processing to eliminate duplicates, correct misinformation, and address missing values. This iterative process may employ both manual effort and specialized preprocessing pipelines implementing techniques like tokenization, normalization, and deduplication algorithms.
 
-![][image2]
+![deployment](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/assets/img/deployment.png)
 
 Data quality is paramount as models inherit the properties of their training data, including biases, factual errors, or security vulnerabilities. Consequently, data represents a prime target for supply chain attacks, where adversaries might poison datasets to introduce instability or manipulate model behavior. Advanced attackers may employ techniques like backdoor injection or gradient-based poisoning that remain undetectable in standard quality assessments.
 
@@ -237,7 +237,7 @@ Applications implement filtering mechanisms for both inputs and outputs to creat
 
 Each filtering component represents a discrete element in the supply chain with its own dependencies, update cadence, and potential for compromise. An attacker who gains control of these filtering mechanisms could selectively bypass security controls for targeted users or queries, potentially enabling data exfiltration or harmful content generation while appearing benign to security monitoring systems. This makes the integrity of filtering components particularly critical to the overall security posture of AI applications.
 
-![][image3]
+![architecture](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/assets/img/architecture.png)
 
 #### Context Enrichment and RAG Systems
 
@@ -520,7 +520,7 @@ When consuming models from third-party infrastructure, organizations should requ
 
 Model Integration and Consumption encompasses the critical phase where organizations incorporate previously generated models into their systems, typically followed by fine-tuning prior to deployment. This stage presents several significant security challenges originating from multiple vectors: the operational data processed by the live system, the third-party models being integrated, the application stack and the underlying infrastructure itself. Each of these components introduces distinct vulnerabilities that must be systematically addressed to maintain supply chain integrity throughout the integration process.
 
-![][image4]
+![integration](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/assets/img/integration.png)
 
 ### 3.2.1 Supply Chain Security for Data
 
@@ -535,7 +535,7 @@ AI systems ingest data through multiple vectors:
 * Raw or preprocessed data repositories accessed via embedding vector-based unstructured queries  
 * Fine-tuning processes that incorporate integrator/consumer data for specialized tasks, often leveraging efficient techniques like LoRA (Low-Rank Adaptation)
 
-![][image5]
+![embeddings](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/assets/img/embeddings.png)
 
 #### Security Implications
 
