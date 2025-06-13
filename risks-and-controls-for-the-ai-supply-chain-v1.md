@@ -294,7 +294,9 @@ Organizations should also document caching systems with isolation and encryption
 
 This documentation enables security teams to conduct comprehensive risk assessments, implement appropriate controls, and respond effectively to vulnerabilities discovered in any component of the complex AI application stack. Regular updates to this documentation are essential as components evolve and new dependencies are introduced over time.
 
-### 2.3 Scope of Existing Secure AI Frameworks  The rapid evolution of AI technologies has prompted the development of several industry frameworks designed to address security threats specific to AI systems. While these frameworks provide valuable guidance for securing aspects of AI development and deployment, they generally lack comprehensive coverage of AI supply chain security concerns.
+### 2.3 Scope of Existing Secure AI Frameworks 
+
+The rapid evolution of AI technologies has prompted the development of several industry frameworks designed to address security threats specific to AI systems. While these frameworks provide valuable guidance for securing aspects of AI development and deployment, they generally lack comprehensive coverage of AI supply chain security concerns.
 
 Three prominent frameworks have emerged as reference points for organizations implementing AI security:
 
