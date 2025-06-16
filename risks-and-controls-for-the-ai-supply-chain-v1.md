@@ -2,6 +2,7 @@
 # Establish Risks and Controls for the AI Supply Chain, V 1.0 
 
 OASIS Open Project : [Coalition for Secure AI (CoSAI)](https://github.com/cosai-oasis) [Workstream 1: Software Supply Chain Security for AI Systems](https://github.com/cosai-oasis/ws1-supply-chain)
+
 _Approved by the CoSAI Project Governing Board on 12 June 2025_
 
 # Table of contents
