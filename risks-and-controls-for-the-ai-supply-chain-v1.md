@@ -753,10 +753,11 @@ Organizations interested in contributing to these technical security initiatives
 
 **Contributors**
 
-* Adam Tuaima, Trend Micro (adam\_tuaima@trendmicro.com)  
+* Adam Tuaima, Trend Micro (adam_tuaima@trendmicro.com)  
 * Arber Salihi, Thomson Reuters (Arber.Salihi@thomsonreuters.com)  
 * Danilo Tommasina, Thomson Reuters (danilo.tommasina@thomsonreuters.com)  
-* Daniel Rohrer, NVIDIA (drohrer@nvidia.com)  
+* Daniel Rohrer, NVIDIA (drohrer@nvidia.com)
+* Harish Thanneer, (harish.thanneer@intel.com), Intel
 * Judith Furlong, Dell (Judith.Furlong@dell.com)  
 * Lorenzo Verstraeten, Thomson Reuters (lorenzo.verstraeten@thomsonreuters.com)  
 * Michael Katz, PayPal (mickatz@paypal.com)  
