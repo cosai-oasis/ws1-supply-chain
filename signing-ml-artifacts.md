@@ -7,37 +7,28 @@ _Approved by the CoSAI Project Governing Board on 29 September 2025_
 
 # Table of contents
 
-[1\. Introduction](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.jljwkn2ccz6i)
-
-[2\. Personas and Stakeholders](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.xyyalpqv3pzb)
-
-[2.1 Model Producers](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.7e8ww7dhssgh)
-
-[2.2 Model Consumers](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.v1kwtfxu9nnr)
-
-[3\. Foundational Components of Model Signing](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.4x66wrngu9px)
-
-[3.1 What is different for model signing?](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.s62pbx20yuf3)
-
-[4\. Maturity Levels and Adoption](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.hulavvec4124)
-
-[5\. Future directions and standardization](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.fs5yrdwwr1iz)
-
-[6\. Contributors and Acknowledgements](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.tjnm5bj1swwr)
-
-[7\. Appendix](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.bddk6ye1s1ml)
-
-[7.1 CoSAI Focus](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.1o7qjvb3pvcx)
-
-[7.2 Guidelines on usage of more advanced AI systems (e.g. large language models (LLMs), multi-modal language models. etc) for drafting documents for OASIS CoSAI:](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.2qctebeisckc)
-
-[7.3 Copyright Notice](https://docs.google.com/document/d/1M9Qld4qac8fRiw_ZtQs9KiO-VuSTziVdDrx6D3mQCic/edit?pli=1&tab=t.ndv5j0v1n0a1#heading=h.xm2nwcyho34h)
+- [Signing ML Artifacts: Building towards tamper-proof ML metadata records](#signing-ml-artifacts-building-towards-tamper-proof-ml-metadata-records)
+  - [1\. Introduction](#1-introduction)
+  - [2\. Personas and Stakeholders](#2-personas-and-stakeholders)
+    - [2.1 Model Producers](#21-model-producers)
+    - [2.2 Model Consumers](#22-model-consumers)
+  - [3\. Foundational Components of Model Signing](#3-foundational-components-of-model-signing)
+    - [3.1 What is different for model signing?](#31-what-is-different-for-model-signing)
+  - [4\. Maturity Levels and Adoption](#4-maturity-levels-and-adoption)
+  - [5\. Future directions and standardization](#5-future-directions-and-standardization)
+    - [5.1 Story of NVIDIA](#51-story-of-nvidia)
+    - [5.2 Further Standardization](#52-further-standardization)
+  - [6\. Contributors and Acknowledgements](#6-contributors-and-acknowledgements)
+  - [7\. Appendix](#7-appendix)
+    - [7.1 CoSAI Focus](#71-cosai-focus)
+    - [7.2 Guidelines on usage of more advanced AI systems (e.g. large language models (LLMs), multi-modal language models. etc) for drafting documents for OASIS CoSAI:](#72-guidelines-on-usage-of-more-advanced-ai-systems-eg-large-language-models-llms-multi-modal-language-models-etc-for-drafting-documents-for-oasis-cosai)
+    - [7.3 Copyright Notice](#73-copyright-notice)
 
 ## 1\. Introduction
 
 The rapid advancement of machine learning (ML) has brought unprecedented capabilities, but it has also introduced complex challenges in ensuring transparency, accountability, and integrity throughout the model development lifecycle. As ML models are supporting a broader range of use cases, increasingly influencing critical decisions across industries, the need for robust mechanisms to verify their provenance and authenticity has become paramount. This paper introduces model signing as a foundational concept to address these challenges, providing a framework to establish trust between model producers and consumers.
 
-Traditional software supply chains have long faced risks such as dependency poisoning, infrastructure compromise, and version integrity attacks. However, the emergence of AI supply chains introduces unique vulnerabilities that demand novel solutions, many of these being covered in our earlier landscape paper ([https://github.com/cosai-oasis/ws1-supply-chain/blob/main/risks-and-controls-for-the-ai-supply-chain-v1.md](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/risks-and-controls-for-the-ai-supply-chain-v1.md)).
+Traditional software supply chains have long faced risks such as dependency poisoning, infrastructure compromise, and version integrity attacks. However, the emergence of AI supply chains introduces unique vulnerabilities that demand novel solutions, many of these being covered in our earlier landscape paper, [Establish Risks and Controls for the AI Supply Chain](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/risks-and-controls-for-the-ai-supply-chain-v1.md).
 
 The consequences of these AI-specific threats are particularly severe due to three key differences from traditional software. 
 
@@ -45,7 +36,7 @@ The consequences of these AI-specific threats are particularly severe due to thr
 2. ***Monitoring and Detection Complexity***: detection becomes more challenging as failures in AI systems are often subtle, requiring continuous monitoring of inherently non-deterministic processes, often across multiple interactions (session) rather than simple discrete observations  
 3. ***Increased Agency***: AI models are becoming more proficient at tasks coupled with Agentic AI systems that have the agency to perform in some cases autonomous actions increasing the repercussions as these systems are integrated into applications that grant additional agency.
 
-ML models are inherently opaque, with their training data, pipelines, and dependencies often not easily inspectable by consumers. This opacity makes it difficult to detect compromises or ensure compliance. To increase transparency into these processes, we strongly recommend adopting the *claimant model* ([https://transparency.dev/pdfs/claimant-model-tutorial.pdf](https://transparency.dev/pdfs/claimant-model-tutorial.pdf)). This means the producer of the ML artifact makes one or more tamper-proof claims about the artifact in the form of *signed attestations*. The signature of the attestation ties the identity of the author to the contents of the attestation. Consumers of ML artifacts start by deciding if they want to trust the identity of these claims, before validating the signature on the claim. If the signature is valid, then consumers can believe the information contained in the attestation. If it turns out that the author has made a false claim, the consumer can reduce further trust on the identity of that author. By having the consumer decide what policies of trust to implement and enforce, we make it easier to react to supply chain compromises, without requiring strong formal systems.
+ML models are inherently opaque, with their training data, pipelines, and dependencies often not easily inspectable by consumers. This opacity makes it difficult to detect compromises or ensure compliance. To increase transparency into these processes, we strongly recommend adopting the [claimant model](https://transparency.dev/pdfs/claimant-model-tutorial.pdf). This means the producer of the ML artifact makes one or more tamper-proof claims about the artifact in the form of *signed attestations*. The signature of the attestation ties the identity of the author to the contents of the attestation. Consumers of ML artifacts start by deciding if they want to trust the identity of these claims, before validating the signature on the claim. If the signature is valid, then consumers can believe the information contained in the attestation. If it turns out that the author has made a false claim, the consumer can reduce further trust on the identity of that author. By having the consumer decide what policies of trust to implement and enforce, we make it easier to react to supply chain compromises, without requiring strong formal systems.
 
 The claims we are considering in this paper are intended to provide a verifiable record of a model’s origin and transformations throughout its lifecycle, this effectively eliminates several avenues for supply chain compromise. There are three main categories of claims that can be made:
 
@@ -66,8 +57,10 @@ Model signing fosters informed decision-making, by enabling organizations to fil
 ## 2\. Personas and Stakeholders
 
 From a model signing perspective, we need to consider a specific set of actors and personas within the model development and distribution process. The following figure introduces the concepts of model producers and consumers as well as areas where signatures should be produced and verified.  
-![][image1]  
-The signature generation and verification process is centered around the model artifacts that are produced and transformed until they are integrated into a full AI system ([https://github.com/cosai-oasis/ws1-supply-chain/blob/main/risks-and-controls-for-the-ai-supply-chain-v1.md\#2-defining-the-ai-supply-chain](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/risks-and-controls-for-the-ai-supply-chain-v1.md#2-defining-the-ai-supply-chain) ). Within the supply chain of the model artifacts, you might have multiple model producers and consumers. For steps that involve transformation and creation of derived models, the same entities might be both consumers and producers at the same time.
+
+![signing lifecycle](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/assets/img/signing-lifecycle.png)
+
+The signature generation and verification process is centered around the model artifacts that are produced and transformed until they are integrated into a full AI system, see [section Defining the AI Supply Chain](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/risks-and-controls-for-the-ai-supply-chain-v1.md#2-defining-the-ai-supply-chain). Within the supply chain of the model artifacts, you might have multiple model producers and consumers. For steps that involve transformation and creation of derived models, the same entities might be both consumers and producers at the same time.
 
 ### 2.1 Model Producers
 
@@ -141,7 +134,10 @@ Before the signature can be written to disk, we need to define how we represent 
 
 Once the manifest is serialized, we need a way to also pair it with its signature. One option would be to extend the model format to contain the signature as part of the model itself, but this would require adapting an ever growing number of model formats and not be scalable. Instead, having a detached signature that applies the same way regardless of the model format is a better approach. A lightweight solution like DSSE (Dead Simple Signing Envelope) is a good fit here, due to its simplicity and ease of implementation – which is why this is the preferred approach for the `model-signing` project. However, for more complex workflows that require robust security and interoperability, formats like PKCS\#7 or COSE are more suitable. These standards offer comprehensive features but may be more complex to implement.
 
-At this point, the signed manifest is available, but there is still one open question left: how do we sign it. Traditionally, signing keys and certificates have been used for generating digital signatures, but these run the risk of a leakage allowing attackers to sign malicious artifacts (as in the SolarWinds incident). An emerging standard is to use short-lived signing certificates, like those proposed by Sigstore. In order to be PKI-agnostic, supporting all these approaches, the `model-signing` project has decided to adopt the Sigstore bundle format for the signature: attach the signature verification material to the signed DSSE envelope. However, compared to a pure Sigstore signature, in the OMS signature the verification material can also be generated from traditional PKI approaches.![][image2]  
+At this point, the signed manifest is available, but there is still one open question left: how do we sign it. Traditionally, signing keys and certificates have been used for generating digital signatures, but these run the risk of a leakage allowing attackers to sign malicious artifacts (as in the SolarWinds incident). An emerging standard is to use short-lived signing certificates, like those proposed by Sigstore. In order to be PKI-agnostic, supporting all these approaches, the `model-signing` project has decided to adopt the Sigstore bundle format for the signature: attach the signature verification material to the signed DSSE envelope. However, compared to a pure Sigstore signature, in the OMS signature the verification material can also be generated from traditional PKI approaches.
+
+![sigstore bundle](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/assets/img/sigstore-bundle.png)  
+
 There are other industry standards for generating signatures, depending on security requirements, preferred security frameworks, DevSecOps practices, etc. As an example, the Notary Project and in-toto can both sign components of the supply chain, ensuring integrity and authenticity of artifacts, although these approaches don’t scale for large models. Furthermore, Notary requires integration with Docker and other tools, while most ML developers prefer to serve the models as self-contained entities. Alternatively, COSE could be used, although it is complex to implement and manage, especially for large-scale workflows, or non-CBOR systems. PKCS\#7 is another alternative, but it produces large signatures and performance overheads. If you are already using Docker or Kubernetes, Notary and Harbor can integrate seamlessly with your existing tools. For those heavily invested in AWS, AWS Signer offers a managed service that integrates well with other AWS services, providing a streamlined signing experience. However, it is tied to the AWS ecosystem, which may limit flexibility and potentially incur higher costs associated with managed services.
 
 Given all these constraints and shortcomings of the existing approaches, we recommend the OMS format, as implemented by the `model-signing` project and described in this section. This is already adopted by industry partners, as we will show in a case study further down in this paper. This format also has the advantage of being extensible: new predicates could be added to the in-toto statement to record additional properties. For example, if the model producer wants to provide a model card with the signature, this could be represented as a new field in the statement.
@@ -186,13 +182,13 @@ The convergence of model signing with regulatory compliance requirements will dr
 
 ## 6\. Contributors and Acknowledgements
 
-Workstream Leads
+**Workstream Leads**
 
 * Matt Maloney, Cohere (mattmaloney@cohere.com)  
 * Andre Elizondo, Wiz (andre.elizondo@wiz.io)  
 * Jay White, Microsoft (jaywhite@microsoft.com)
 
-Editors
+**Editors**
 
 * Mihai Maruseac, Google (mihaimaruseac@google.com)  
 * John Stone, Google ([thestone@google.com](mailto:thestone@google.com))  
@@ -200,7 +196,7 @@ Editors
 * Danilo Tommasina, Thomson Reuters ([danilo.tommasina@thomsonreuters.com](mailto:danilo.tommasina@thomsonreuters.com))  
 * Yassine Ilmi, Thomson Reuters ([yassine.ilmi@thomsonreuters.com](mailto:yassine.ilmi@thomsonreuters.com))
 
-Contributors
+**Contributors**
 
 * Adam Tuaima, TrendMicro (adam\_tuaima@trendmicro.com)  
 * Arber Salihi, Thomson Reuters ([Arber.Salihi@thomsonreuters.com](mailto:Arber.Salihi@thomsonreuters.com))  
@@ -211,7 +207,7 @@ Contributors
 * Stefan Berger, IBM ([stefanb@us.ibm.com](mailto:stefanb@us.ibm.com))  
 * Martin Sablotny, NVIDIA ([msablotny@nvidia.com](mailto:msablotny@nvidia.com)) 
 
-Technical Steering Committee Co-Chairs
+**Technical Steering Committee Co-Chairs**
 
 * Akila Srinivasan, Anthropic (akila@anthropic.com)  
 * J.R. Rao, IBM (jrrao@us.ibm.com)
