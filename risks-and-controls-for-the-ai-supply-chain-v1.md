@@ -1,3 +1,8 @@
+---
+title: "Establish Risks and Controls for the AI Supply Chain, V 1.0"
+author: "Workstream 1: Software Supply Chain Security for AI Systems"
+date: 12 June 2025
+---
 
 # Establish Risks and Controls for the AI Supply Chain, V 1.0 
 

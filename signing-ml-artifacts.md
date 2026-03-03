@@ -1,3 +1,8 @@
+---
+title: "Signing ML Artifacts: Building towards tamper-proof ML metadata records"
+author: "Workstream 1: Software Supply Chain Security for AI Systems"
+date: 29 September 2025
+---
 
 # Signing ML Artifacts: Building towards tamper-proof ML metadata records
 
