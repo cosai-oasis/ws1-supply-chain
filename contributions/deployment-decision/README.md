@@ -1,6 +1,6 @@
 # Deployment decision: local schema and vector proposal
 
-**Status: experimental input for discussion, 15 September 2026.** This package has not been submitted to or adopted by CoSAI. Its test results describe this implementation against its authored candidate cases.
+**Status: experimental input for discussion, 15 September 2026.** Submitted for review in [WS1 PR #33](https://github.com/cosai-oasis/ws1-supply-chain/pull/33); not adopted by CoSAI. Its test results describe this implementation against its authored candidate cases.
 
 ## Decision and result
 
@@ -76,4 +76,4 @@ Prepared against WS1 repository commit [`b4b09599b5fc8009f619efcdeee8162461fe6c3
 
 The [WCM conformance design](https://github.com/agentrust-io/weight-custody-manifest/blob/main/docs/conformance.md) informed explicit expected outcomes, exact reason matching and acceptance/refusal controls. No WCM schema, vectors, error codes or conformance level is reused or claimed. A new interop profile is only one possible outcome of #31; this experiment does not conclude that existing standards are insufficient.
 
-The [WS1 contribution process](https://github.com/cosai-oasis/ws1-supply-chain/blob/b4b09599b5fc8009f619efcdeee8162461fe6c3b/CONTRIBUTING.md) requires discussion and review for submissions. This local package makes no external commitment and changes no working-group state.
+The [WS1 contribution process](https://github.com/cosai-oasis/ws1-supply-chain/blob/b4b09599b5fc8009f619efcdeee8162461fe6c3b/CONTRIBUTING.md) requires discussion and review for submissions. This proposal is pending working-group review and makes no implementation or adoption commitment.
