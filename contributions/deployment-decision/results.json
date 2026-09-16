@@ -1,0 +1,892 @@
+{
+  "candidate": true,
+  "count": 74,
+  "matched": 74,
+  "results": [
+    {
+      "id": "admit-conditional",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "pass",
+        "decision": "admit",
+        "codes": []
+      }
+    },
+    {
+      "id": "admit-unconditional",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "pass",
+        "decision": "admit",
+        "codes": []
+      }
+    },
+    {
+      "id": "admit-window-start",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "pass",
+        "decision": "admit",
+        "codes": []
+      }
+    },
+    {
+      "id": "admit-no-region-needed",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "pass",
+        "decision": "admit",
+        "codes": []
+      }
+    },
+    {
+      "id": "wrong-weight-bytes",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_APPROVAL",
+          "ARTIFACT_EVALUATION",
+          "ARTIFACT_SERVING_ENVIRONMENT",
+          "ARTIFACT_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "missing-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "MISSING_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "wrong-subject-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "wrong-domain-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "bad-signature-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "SIGNATURE_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "expired-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "TIME_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "revocation-unknown-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "REVOCATION_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "missing-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "MISSING_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-subject-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-domain-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "bad-signature-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "SIGNATURE_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "expired-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "TIME_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "revocation-unknown-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "REVOCATION_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "missing-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "MISSING_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-subject-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-domain-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "bad-signature-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "SIGNATURE_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "expired-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "TIME_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "revocation-unknown-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "REVOCATION_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "missing-approval",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "MISSING_APPROVAL"
+        ]
+      }
+    },
+    {
+      "id": "wrong-subject-approval",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_APPROVAL"
+        ]
+      }
+    },
+    {
+      "id": "wrong-domain-approval",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "ARTIFACT_APPROVAL"
+        ]
+      }
+    },
+    {
+      "id": "bad-signature-approval",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "SIGNATURE_APPROVAL"
+        ]
+      }
+    },
+    {
+      "id": "expired-approval",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "TIME_APPROVAL"
+        ]
+      }
+    },
+    {
+      "id": "revocation-unknown-approval",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "REVOCATION_APPROVAL"
+        ]
+      }
+    },
+    {
+      "id": "untrusted-evaluator",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "AUTHORITY_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "wrong-key-role",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "AUTHORITY_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "wrong-authority-domain",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "AUTHORITY_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "rotated-key-id",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "AUTHORITY_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "revoked-evaluator",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "REVOKED_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "expired-authority",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "KEY_TIME_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "future-claim",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "TIME_EVALUATION"
+        ]
+      }
+    },
+    {
+      "id": "wrong-evaluation-domain",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "EVALUATION_DOMAIN"
+        ]
+      }
+    },
+    {
+      "id": "failed-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "EVALUATION_RESULT"
+        ]
+      }
+    },
+    {
+      "id": "unknown-evaluation",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "EVALUATION_RESULT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-test-binding",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "TEST_BINDING"
+        ]
+      }
+    },
+    {
+      "id": "wrong-measurement-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-measurement-domain-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "failed-appraisal-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "APPRAISAL_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "unknown-appraisal-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "APPRAISAL_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "missing-threat-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "THREAT_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-measurement-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-measurement-domain-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "failed-appraisal-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "APPRAISAL_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "unknown-appraisal-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "APPRAISAL_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "missing-threat-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "THREAT_SERVING_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "physical-owner-required",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "THREAT_SERVING_ENVIRONMENT",
+          "THREAT_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "wrong-target",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "TARGET_BINDING"
+        ]
+      }
+    },
+    {
+      "id": "replayed-serving-evidence",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "CHALLENGE_BINDING"
+        ]
+      }
+    },
+    {
+      "id": "wrong-approval-binding",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "APPROVAL_BINDING"
+        ]
+      }
+    },
+    {
+      "id": "wrong-approval-target",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "APPROVAL_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "denied-approval",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "APPROVAL_DENIED"
+        ]
+      }
+    },
+    {
+      "id": "wrong-usage",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "CONDITION_USAGE"
+        ]
+      }
+    },
+    {
+      "id": "unknown-usage",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "CONDITION_USAGE"
+        ]
+      }
+    },
+    {
+      "id": "wrong-region",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "CONDITION_REGION"
+        ]
+      }
+    },
+    {
+      "id": "unknown-region",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "not_established",
+        "decision": "refuse",
+        "codes": [
+          "CONDITION_REGION"
+        ]
+      }
+    },
+    {
+      "id": "failure-with-missing-evidence",
+      "matched": true,
+      "actual": {
+        "status": "complete",
+        "verdict": "fail",
+        "decision": "refuse",
+        "codes": [
+          "CONDITION_USAGE",
+          "MISSING_TEST_ENVIRONMENT"
+        ]
+      }
+    },
+    {
+      "id": "unknown-bundle-profile",
+      "matched": true,
+      "actual": {
+        "status": "unsupported",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "UNSUPPORTED_PROFILE"
+        ]
+      }
+    },
+    {
+      "id": "unknown-signed-profile",
+      "matched": true,
+      "actual": {
+        "status": "unsupported",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "UNSUPPORTED_PROFILE"
+        ]
+      }
+    },
+    {
+      "id": "missing-required-slot",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "INPUT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "unknown-condition-operator",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "INPUT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "boolean-appraisal",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "INPUT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "producer-trust-store",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "INPUT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "invalid-date",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "INPUT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "reversed-validity",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "VALIDITY_ORDER"
+        ]
+      }
+    },
+    {
+      "id": "wrong-measurement-width",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "duplicate-trust-key",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "DUPLICATE_TRUST_KEY"
+        ]
+      }
+    },
+    {
+      "id": "malformed-local-context",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "CONTEXT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "invalid-unicode",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "INVALID_UNICODE"
+        ]
+      }
+    },
+    {
+      "id": "leap-second-outside-profile",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "CONTEXT_SCHEMA"
+        ]
+      }
+    }
+  ]
+}
