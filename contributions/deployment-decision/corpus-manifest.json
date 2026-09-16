@@ -1,5 +1,5 @@
 {
-  "count": 79,
+  "count": 82,
   "ids": [
     "admit-conditional",
     "admit-unconditional",
@@ -79,7 +79,10 @@
     "duplicate-trust-key",
     "malformed-local-context",
     "invalid-unicode",
-    "leap-second-outside-profile"
+    "leap-second-outside-profile",
+    "signature-trailing-newline",
+    "artifact-trailing-newline",
+    "key-trailing-newline"
   ],
-  "sha256": "9d359cd28221634fe860547a6f30fc0971eb097bfe80293e59f816ed43ae27e9"
+  "sha256": "317cffee10c02c766acf65837fc9bb870c4f589a1819b4269cac699a6577ba81"
 }

@@ -142,6 +142,9 @@ export function fixtures() {
   add('malformed-local-context', 'Missing local decision time is not an evidence verdict', i => {delete i.context.now;}, inputError('CONTEXT_SCHEMA'));
   add('invalid-unicode', 'Lone surrogates are rejected before canonicalization', i => {i.bundle.evaluation.payload.annotations.note = '\ud800';}, inputError('INVALID_UNICODE'));
   add('leap-second-outside-profile', 'This experiment supports whole UTC seconds 00 through 59', i => {i.context.now = '2026-09-15T12:30:60Z';}, inputError('CONTEXT_SCHEMA'));
+  add('signature-trailing-newline', 'Hex signatures consume the whole string in every regex engine', i => {i.bundle.approval.signature += '\n';}, inputError('INPUT_SCHEMA'));
+  add('artifact-trailing-newline', 'Artifact hex must not silently discard trailing whitespace', i => {i.context.artifact_hex += '\n';}, inputError('CONTEXT_SCHEMA'));
+  add('key-trailing-newline', 'Local public-key hex must not silently discard trailing whitespace', i => {i.context.policy.keys[3].public_key += '\n';}, inputError('CONTEXT_SCHEMA'));
   return {profile: 'ws1-candidate-vector-set/0.1', provenance: 'Synthetic fixtures authored locally for WS1 #31; not adopted conformance cases.', cases};
 }
 

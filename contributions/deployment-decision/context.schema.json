@@ -6,11 +6,11 @@
     "now": {
       "type": "string",
       "format": "date-time",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
     },
     "artifact_hex": {
       "type": "string",
-      "pattern": "^([0-9a-f]{2})+$"
+      "pattern": "^([0-9a-f]{2})+(?![\\s\\S])"
     },
     "target_environment": {
       "type": "string",
@@ -72,7 +72,7 @@
             },
             "digest": {
               "type": "string",
-              "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})$"
+              "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
             }
           },
           "required": [
@@ -97,7 +97,7 @@
             },
             "digest": {
               "type": "string",
-              "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})$"
+              "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
             }
           },
           "required": [
@@ -123,7 +123,7 @@
               },
               "public_key": {
                 "type": "string",
-                "pattern": "^[0-9a-f]{64}$"
+                "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
               },
               "roles": {
                 "type": "array",
@@ -149,12 +149,12 @@
               "valid_from": {
                 "type": "string",
                 "format": "date-time",
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
               },
               "valid_until": {
                 "type": "string",
                 "format": "date-time",
-                "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
               },
               "revocation": {
                 "enum": [

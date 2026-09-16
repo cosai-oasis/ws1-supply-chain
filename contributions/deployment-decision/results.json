@@ -1,7 +1,7 @@
 {
   "candidate": true,
-  "count": 79,
-  "matched": 79,
+  "count": 82,
+  "matched": 82,
   "results": [
     {
       "id": "admit-conditional",
@@ -938,6 +938,42 @@
     },
     {
       "id": "leap-second-outside-profile",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "CONTEXT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "signature-trailing-newline",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "INPUT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "artifact-trailing-newline",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "CONTEXT_SCHEMA"
+        ]
+      }
+    },
+    {
+      "id": "key-trailing-newline",
       "matched": true,
       "actual": {
         "status": "input_error",

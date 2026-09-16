@@ -1,0 +1,7 @@
+-r requirements.txt
+# Optional Azure SNP/vTPM verification adapter. No WCM dependency in either core verifier.
+weight-custody-manifest==0.28.2
+annotated-types==0.8.0
+pydantic==2.13.5
+pydantic-core==2.46.5
+typing-inspection==0.4.4

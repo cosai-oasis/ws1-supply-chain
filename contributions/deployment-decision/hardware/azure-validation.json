@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "checked_at": "2026-09-16T23:21:17.192186+00:00",
+  "checks": {
+    "authentic_capture": true,
+    "authentic_capture_does_not_admit": true,
+    "wrong_challenge": true,
+    "wrong_artifact": true,
+    "tampered_snp_measurement": true,
+    "tampered_snp_signature": true,
+    "tampered_tpm_signature": true,
+    "tampered_tpm_quote": true,
+    "producer_root_injection": true,
+    "missing_chain": true,
+    "untrusted_leaf": true,
+    "truncated_hcl": true,
+    "projection_preserves_missing_premises": true,
+    "signed_projection_cannot_bypass_deployment_policy": true
+  },
+  "check_count": 14,
+  "evidence_sha256": "66abae4ae21a9b8b284f463ccff667462a27f50a747cc4a0c070607c256eccd7",
+  "root_certificate_sha256": "4c6598d19c18719c5dfd4a7d335f674e5bfe1d8f800cea2cf270c10d103db2f1",
+  "nonce_sha256": "61fc78387a028c2011899e996053d120ad96eac22b1b069f22cc479f74a00d01",
+  "artifact_sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f",
+  "libraries": {
+    "weight-custody-manifest": "0.28.2",
+    "cryptography": "50.0.1"
+  },
+  "source_sha256": {
+    "azure_adapter.py": "a1acc59914d27e8eb695ae9532a8176d3ce9b26edc16cb7275f12a16158d2a4a",
+    "capture_azure.py": "bdf2c6323fb41c0f507fe2f05760b2efcef486deb92ce13d67cf5ead6fd658a4",
+    "test_hardware.py": "b90e8bc28e286d2b302c2f6efa11da5e1c9a9f9999d741461c001b03254c6443",
+    "requirements-hardware.txt": "e513f47350e6eb47b1c40b91ac05a5ea4108b92a0553e52cb7ae626be1d7a3dc"
+  },
+  "cryptographic_checks_verified": true,
+  "deployment_decision": "refuse",
+  "limits": [
+    "Raw device-identifying evidence retained privately; this summary is not a portable attestation.",
+    "Demonstrates SNP/chain signatures, HCL AK link, fresh challenge binding and guest-written PCR 23.",
+    "Does not establish executed model identity, current revocation, full platform policy, nonce consumption or continuing enforcement.",
+    "WCM is another project by the same contributor; this adapter is not independent external validation."
+  ],
+  "capture": {
+    "captured_at": "2026-09-16T22:52:09.820766+00:00",
+    "provider": "Microsoft Azure",
+    "vm_size": "Standard_DC2as_v5",
+    "processor_endorsement": "Genoa",
+    "snp_report_version": 5,
+    "artifact": "Synthetic WS1 model weights; not a trained model",
+    "public_ip": false,
+    "temporary_resources_deleted": true
+  }
+}

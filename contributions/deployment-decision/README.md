@@ -6,7 +6,7 @@
 
 A relying party asks: **may these exact model-weight bytes enter this specific serving environment under this approval?**
 
-The package contains a JSON Schema for the evidence bundle, a separate schema for local policy and observations, a small offline checker, and 79 language-neutral candidate vectors. Four cases admit; 75 refuse for a specified contradiction, missing premise, unsupported profile, or malformed input. Every refusal names an accepting twin. The reference implementation checks real Ed25519 signatures on synthetic statements.
+The package contains a JSON Schema for the evidence bundle, a separate schema for local policy and observations, Node.js and Python offline checkers, and 82 language-neutral candidate vectors. Four cases admit; 78 refuse for a specified contradiction, missing premise, unsupported profile, or malformed input. Every refusal names an accepting twin. Both implementations check real Ed25519 signatures on synthetic statements.
 
 The output separates verification from admission:
 
@@ -27,6 +27,8 @@ Refusal does not assert that a model is unsafe. Admission does not establish mod
 - [Candidate vectors](vectors.json), with explicit inputs and expected outputs
 - [Checker](checker.mjs) and [read-only runner](run.mjs)
 - [Verification evidence](verification.json), including which cases detect each removed check
+- [Second implementation and strict wire ingress](INTEROP.md), with [recorded results](interop-results.json)
+- [Optional Azure SNP/vTPM adapter and capture instructions](hardware/README.md), with [live-capture validation](hardware/azure-validation.json)
 
 From this directory, with Node.js 22 or later:
 
@@ -41,6 +43,8 @@ On Windows PowerShell with script execution disabled, use `npm.cmd` for those co
 `npm test` compares generated schemas and vectors with committed bytes, runs every case, permutes object-property order, checks a literal Unicode canonicalization oracle, checks deeply nested malformed input, verifies that always-admit and always-refuse implementations cannot pass, and removes 25 production checks in disposable copies. Every removed check must change at least one expected result. It writes `verification.json` and deletes the disposable copies.
 
 `npm run check` checks the corpus digest and exact case IDs against `corpus-manifest.json`, then evaluates the existing corpus without regenerating or repairing it. The manifest detects local drift, not malicious replacement of both files. Tests remove a case and alter an expectation separately, require rejection, and verify the changed bytes are left untouched. Expected answers are supplied only to the scoring runner; the checker receives `bundle` and `context` as separate arguments. To intentionally edit the authored fixtures or schemas, change `generate.mjs` or `schema.mjs`, run `npm run generate`, and inspect the resulting diff. Generation never consults checker verdicts.
+
+For the second implementation, install `requirements.txt` in a Python 3.11+ virtual environment, then run `python test_interop.py` and `python test_mutations.py`. The first compares both implementations on the corpus and tests 26 wire cases plus four CLI invocations. The second detects nine selected Python/wire defects. CI runs these and the Node suite on Node 22/Python 3.11 and Node 24/Python 3.13. Hardware capture is a separate, explicitly invoked test; CI does not provision cloud resources.
 
 ## How the seven claims map
 
@@ -60,13 +64,13 @@ An additional signed **approval** binds the evaluation to the serving target and
 
 ## Limits
 
-- All model bytes, keys, appraisals, measurements, identities, regions and environments are synthetic. Deterministic private-key seeds in `generate.mjs` are public test material. They must never enter a real trust store.
-- No AMD, Intel, NVIDIA or cloud attestation is parsed or validated. The environment statements represent outputs of a separately trusted appraiser. Their signatures prove attribution and integrity under fixture keys, not the truth of a hardware claim. Model-to-workload binding remains a required adapter obligation.
+- The 82 core vectors use synthetic model bytes, keys, appraisals, measurements, identities, regions and environments. Deterministic private-key seeds in `generate.mjs` are public test material. They must never enter a real trust store.
+- A separate Azure adapter has been exercised with a real SNP/vTPM capture. It verifies report/certificate signatures, the HCL-to-AK link, challenge/artifact-digest binding and a guest-written PCR value. It does not establish model execution or a complete platform appraisal, so it cannot produce a passing deployment appraisal. Intel and NVIDIA attestation are not tested here. See the adapter's narrower [limits](hardware/README.md).
 - Region and usage facts come from trusted caller context. A hardware measurement does not prove location. This package does not authenticate a cloud control-plane record, deployment request or policy-store update.
-- No online revocation, certificate chains, timestamp service, transparency log, physical-attack resistance, benchmark execution, raw-log fetching, or running deployment is tested. Log and harness digests are signed references; their source bytes and quality are not checked here.
+- No online revocation, timestamp service, transparency log, physical-attack resistance, benchmark execution, raw-log fetching, or running model deployment is tested. The Azure adapter checks certificate signatures against a separately enrolled AMD root and checks certificate validity at a supplied time. Log and harness digests are signed references; their source bytes and quality are not checked here.
 - All claims and authority entries are checked at the decision time. Historical appraisal, evaluator authority at evaluation time, superseding claims, maximum evidence age, clock skew, continuous conditions, nonce consumption and distributed races remain unresolved. A challenge match alone does not prevent repeated use of the same challenge.
-- The checker API accepts already-parsed JSON values. A wire adapter must reject duplicate object names before parsing; ordinary `JSON.parse` cannot recover discarded duplicates. The committed corpus does not establish wire-parser conformance. Lone surrogate strings are explicitly rejected. Only whole-second UTC timestamps without leap seconds are supported.
-- The reference checker and corpus were authored in the same local task and share the canonicalization library and Node crypto implementation. Mutation results measure sensitivity to the 25 listed defects. They do not establish complete coverage, independent interoperability, or CoSAI conformance.
+- The object APIs still require already-parsed JSON. Use `check-wire.mjs` or `verify.py` for strict byte ingress: they reject duplicate decoded property names, malformed UTF-8 and lone surrogates, and bound inputs to 1 MiB and 64 container levels. This byte limit makes the inline-weight context suitable for small fixtures, not full-sized model packages. Only whole-second UTC timestamps without leap seconds are supported.
+- Node and Python use different validation, canonicalization and Ed25519 libraries, but share the schemas, contract, corpus and contributor. The Node checker and generator still share libraries. Mutation results cover the listed defects; they do not establish complete coverage, independent external interoperability, or CoSAI conformance. WCM supplies the optional hardware verification dependency and is also this contributor's work.
 
 ## Source and disposition
 
@@ -74,6 +78,6 @@ The scope comes from [WS1 #31](https://github.com/cosai-oasis/ws1-supply-chain/i
 
 Prepared against WS1 repository commit [`b4b09599b5fc8009f619efcdeee8162461fe6c3b`](https://github.com/cosai-oasis/ws1-supply-chain/tree/b4b09599b5fc8009f619efcdeee8162461fe6c3b), on an isolated local worktree. The repository's open and closed PR list contained no deployment claim-set implementation at that read. This does not cover private drafts or all working-group documents.
 
-The [WCM conformance design](https://github.com/agentrust-io/weight-custody-manifest/blob/main/docs/conformance.md) informed explicit expected outcomes, exact reason matching and acceptance/refusal controls. No WCM schema, vectors, error codes or conformance level is reused or claimed. A new interop profile is only one possible outcome of #31; this experiment does not conclude that existing standards are insufficient.
+The [WCM conformance design](https://github.com/agentrust-io/weight-custody-manifest/blob/main/docs/conformance.md) informed explicit expected outcomes, exact reason matching and acceptance/refusal controls. The core decision experiment reuses no WCM schema, vectors, error codes or conformance level. The optional Azure adapter explicitly depends on WCM's hardware verifier. A new interop profile is only one possible outcome of #31; this experiment does not conclude that existing standards are insufficient.
 
 The [WS1 contribution process](https://github.com/cosai-oasis/ws1-supply-chain/blob/b4b09599b5fc8009f619efcdeee8162461fe6c3b/CONTRIBUTING.md) requires discussion and review for submissions. This proposal is pending working-group review and makes no implementation or adoption commitment.

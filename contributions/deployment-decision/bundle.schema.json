@@ -33,12 +33,12 @@
                 "valid_from": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "valid_until": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "subject": {
                   "type": "object",
@@ -49,7 +49,7 @@
                     },
                     "sha256": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     }
                   },
                   "required": [
@@ -67,15 +67,15 @@
                     },
                     "test_environment_digest": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     },
                     "harness_digest": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     },
                     "log_digest": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     },
                     "outcome": {
                       "enum": [
@@ -116,7 +116,7 @@
             },
             "signature": {
               "type": "string",
-              "pattern": "^[0-9a-f]{128}$"
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
             }
           },
           "required": [
@@ -156,12 +156,12 @@
                 "valid_from": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "valid_until": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "subject": {
                   "type": "object",
@@ -172,7 +172,7 @@
                     },
                     "sha256": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     }
                   },
                   "required": [
@@ -203,7 +203,7 @@
                         },
                         "digest": {
                           "type": "string",
-                          "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})$"
+                          "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
                         }
                       },
                       "required": [
@@ -264,7 +264,7 @@
             },
             "signature": {
               "type": "string",
-              "pattern": "^[0-9a-f]{128}$"
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
             }
           },
           "required": [
@@ -304,12 +304,12 @@
                 "valid_from": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "valid_until": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "subject": {
                   "type": "object",
@@ -320,7 +320,7 @@
                     },
                     "sha256": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     }
                   },
                   "required": [
@@ -351,7 +351,7 @@
                         },
                         "digest": {
                           "type": "string",
-                          "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})$"
+                          "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
                         }
                       },
                       "required": [
@@ -412,7 +412,7 @@
             },
             "signature": {
               "type": "string",
-              "pattern": "^[0-9a-f]{128}$"
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
             }
           },
           "required": [
@@ -452,12 +452,12 @@
                 "valid_from": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "valid_until": {
                   "type": "string",
                   "format": "date-time",
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ$"
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
                 },
                 "subject": {
                   "type": "object",
@@ -468,7 +468,7 @@
                     },
                     "sha256": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     }
                   },
                   "required": [
@@ -482,7 +482,7 @@
                   "properties": {
                     "evaluation_digest": {
                       "type": "string",
-                      "pattern": "^[0-9a-f]{64}$"
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
                     },
                     "serving_environment_id": {
                       "type": "string",
@@ -553,7 +553,7 @@
             },
             "signature": {
               "type": "string",
-              "pattern": "^[0-9a-f]{128}$"
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
             }
           },
           "required": [

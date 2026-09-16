@@ -2,8 +2,8 @@
   "status": "pass",
   "runtime": "v24.18.1",
   "platform": "win32",
-  "candidates": 79,
-  "matched": 79,
+  "candidates": 82,
+  "matched": 82,
   "checks": [
     "generated artifacts reproduce byte for byte",
     "unique complete corpus with an accepting twin for every refusal",
@@ -220,17 +220,17 @@
       ]
     }
   ],
-  "vectorSha256": "9d359cd28221634fe860547a6f30fc0971eb097bfe80293e59f816ed43ae27e9",
+  "vectorSha256": "317cffee10c02c766acf65837fc9bb870c4f589a1819b4269cac699a6577ba81",
   "artifactSha256": {
     "checker.mjs": "fc4df337bccebd57ce694161781549d9d3786df5071ee06de0235c232882db7a",
-    "bundle.schema.json": "0229356485f31b49c846279db0024e351ac5d88119cac96a7031613704cc7938",
-    "context.schema.json": "988df2c04ed35218fc98e91ecd0faf2271f93350c62032fb43404786226cac33",
-    "schema.mjs": "faa92219a456bbae60c5323c02a9bceeecebf02cda91ef193ab09fd1a582eb6f",
-    "generate.mjs": "e4d6166c909b56c241eb48ea6058b5d05c9db7160acf7ddafdcbfd1fc3409ba2",
+    "bundle.schema.json": "6b4a8d99bffb472a16d421e8c65c4ff2266274ba1f3aea870a2d63d0229de843",
+    "context.schema.json": "c8a57132a3575e535a2c38dba7d542b4a20abba4e16042c7162468d7e02b00b4",
+    "schema.mjs": "80f94ef68c605eb7136321558342131a4952ae4357ef248243b36b8f233cc78c",
+    "generate.mjs": "08be11a84f47cae0bb16c3fd3def13c9b012dd37b7164fa606f44b9f85201913",
     "run.mjs": "6f21a345ef48b934fb89e09c345546cda21bdb8d00e7d823f7e500e46cc1079d",
     "test.mjs": "a49a030053a3c63941b966a2ec06a5def84c4928b471b68445abff0d59ffbe2b",
     "package-lock.json": "800dbab96cddad689b19f7cfa4b87ae6f1e796ca5fa80d24a09a03c66eaaf0b9",
-    "corpus-manifest.json": "c53de6c4968d400de862175465954c591d29770311c3074dd80d505660088b16"
+    "corpus-manifest.json": "e89e769f8d57511acfa3ea5811cf7fce204c9197085e265860920b0648b5737f"
   },
   "limits": [
     "One locally authored implementation and corpus; not independent interoperability.",

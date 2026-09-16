@@ -6,6 +6,8 @@
 
 The bundle has four required slots: evaluation, test appraisal, serving appraisal, and approval. A slot may be explicitly `null` to report unavailable evidence. An omitted slot is an input error. Signed objects have no trust-store or remote key-discovery field; extra fields are rejected. Local issuer/key pairs must be unique. Each key has an allowed role and local validity and revocation state. Evaluation keys additionally have allowed evaluation domains. No network requests occur.
 
+The separate byte entrypoints are `evaluateWire(bundleBytes, contextBytes)` and Python `evaluate_wire`. Each input is UTF-8 JSON, at most 1,048,576 bytes and 64 nested containers. Duplicate property names are compared after escape decoding at every object level. Malformed UTF-8, invalid JSON (including a BOM or non-finite numbers), lone surrogates and exceeded limits refuse with `input_error`. Wire codes are `WIRE_DUPLICATE_KEY`, `WIRE_UTF8`, `WIRE_JSON`, `INVALID_UNICODE` and `WIRE_LIMIT`. When several wire errors coexist, an implementation may report the first one it encounters; agreement on error priority for such inputs is not claimed. The original object APIs cannot detect duplicates discarded by a caller's parser.
+
 ## Signature and byte rules
 
 This fixture profile is named `ws1-deployment-experiment/0.1+jcs-ed25519`. Its bytes are:
@@ -14,7 +16,7 @@ This fixture profile is named `ws1-deployment-experiment/0.1+jcs-ed25519`. Its b
 UTF8("WS1-DEPLOYMENT-EXPERIMENT-v0.1") || 0x00 || UTF8(JCS(payload))
 ```
 
-The 64-byte Ed25519 signature is lowercase hexadecimal. The profile, role, issuer, key ID, validity, artifact subject, all details and annotations are inside the signature. A binding to another statement is SHA-256 of the RFC 8785 canonicalized **whole envelope**, including its payload and signature. The signature preimage excludes the envelope and signature; these two byte constructions serve different purposes.
+The 64-byte Ed25519 signature is lowercase hexadecimal. Hex encodings consume the entire string: trailing whitespace is malformed, even if a language's hex decoder would ignore it. The profile, role, issuer, key ID, validity, artifact subject, all details and annotations are inside the signature. A binding to another statement is SHA-256 of the RFC 8785 canonicalized **whole envelope**, including its payload and signature. The signature preimage excludes the envelope and signature; these two byte constructions serve different purposes.
 
 The prefix and raw hexadecimal envelope are local test framing. This is not JWS, COSE, DSSE, an EAT token, or a proposed replacement for any of them. A future adapter must specify the native signed-byte rules and carry the same semantic bindings without assuming reserialization is harmless.
 
@@ -56,10 +58,10 @@ This is a mapping of responsibilities, not a claim that the mechanisms interoper
 
 | Responsibility | Existing mechanism to investigate | Work remaining |
 |---|---|---|
-| Deterministic JSON bytes | [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785) | Native-envelope adapter and duplicate-rejecting wire parser |
+| Deterministic JSON bytes | [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785) | Native-envelope adapter; duplicate-rejecting ingress is implemented in Node and Python |
 | Signature envelope | [JWS, RFC 7515](https://www.rfc-editor.org/rfc/rfc7515) or [COSE, RFC 9052](https://www.rfc-editor.org/rfc/rfc9052) | Select one existing profile; specify protected metadata and binding digests |
-| Attestation and appraisal | [RATS architecture, RFC 9334](https://www.rfc-editor.org/rfc/rfc9334) | Verify platform evidence, endorsements, freshness and artifact/workload binding; define a signed appraisal profile |
-| Structural interchange | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core) | Independent schema/semantic implementation and native-format mappings |
+| Attestation and appraisal | [RATS architecture, RFC 9334](https://www.rfc-editor.org/rfc/rfc9334) | Azure SNP/vTPM signature/challenge checks are exercised; platform policy, execution binding and an agreed signed appraisal profile remain open |
+| Structural interchange | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core) | Node/Python comparison is implemented; external implementation and native-format mappings remain open |
 | Policy and conditional approval | Relying-party policy plus an authorized signed decision | Compare existing authorization/policy representations before inventing a condition vocabulary |
 
 ## Decisions for WS1 reviewers
