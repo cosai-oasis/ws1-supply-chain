@@ -29,6 +29,18 @@ test('unique complete corpus with an accepting twin for every refusal', () => {
 test('every candidate matches exact status, verdict, admission and reason codes', () => {
   for (const c of cases) assert.deepEqual(evaluate(c.input.bundle, c.input.context), c.expected, c.id);
 });
+test('deeply nested malformed JSON returns a processing error without throwing', () => {
+  for (const field of ['bundle', 'context']) {
+    for (const leaf of ['null', '"\\ud800"']) {
+      const input = structuredClone(cases[0].input);
+      input[field].extra = JSON.parse('{"child":'.repeat(50000) + leaf + '}'.repeat(50000));
+      assert.deepEqual(evaluate(input.bundle, input.context), {
+        status: 'input_error', verdict: null, decision: 'refuse',
+        codes: [leaf === 'null' ? (field === 'bundle' ? 'INPUT_SCHEMA' : 'CONTEXT_SCHEMA') : 'INVALID_UNICODE']
+      });
+    }
+  }
+});
 const reverse = value => Array.isArray(value) ? value.map(reverse) :
   value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).reverse().map(([k, v]) => [k, reverse(v)])) : value;
 test('object-property arrival order does not change any result', () => {
@@ -79,6 +91,8 @@ const mutations = [
   ['revoked', "key.revocation === 'revoked'", 'false'],
   ['unknown-revocation', "key.revocation === 'unknown'", 'false'],
   ['measurement', '!sameMeasurement(d.measurement, expected)', 'false'],
+  ['measurement-shape', "m.digest.length !== (m.algorithm === 'sha256' ? 64 : 96)", 'false'],
+  ['validity-order', 'item.valid_from >= item.valid_until', 'false'],
   ['threat', 'context.policy.required_exclusions.some(x => !d.adversary_exclusions.includes(x))', 'false'],
   ['evaluation-domain', 'd.evaluation_domain !== context.policy.evaluation_domain', 'false'],
   ['test-binding', 'bundle.test_environment && d.test_environment_digest !== digestEnvelope(bundle.test_environment)', 'false'],

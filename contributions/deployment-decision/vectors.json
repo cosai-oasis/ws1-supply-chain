@@ -15314,6 +15314,1111 @@
       }
     },
     {
+      "id": "malformed-width-before-signature-test_environment",
+      "status": "candidate_against_proposed",
+      "claim": "Malformed measurement width preempts authentication failures",
+      "twin": "admit-conditional",
+      "input": {
+        "bundle": {
+          "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+          "test_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "test_environment",
+              "issuer": "test:test_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "test-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "historical-test-challenge",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "serving_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "serving_environment",
+              "issuer": "test:serving_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "serve-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "local-fresh-challenge-001",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "27879d7df695d179a4d474d5135cb7f21a27c8201f06357765eda78a8d30ab204ad3e9e548a61898913e868ef1ffea4ade84ff54d7021250b9901a4e1118700c"
+          },
+          "evaluation": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "evaluation",
+              "issuer": "test:evaluation",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_domain": "example-bank/internal-assistant",
+                "test_environment_digest": "14ac9cfb012189a20d35f948ea14d289c782df7b97377e7b6892554df84e1eb5",
+                "harness_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+                "log_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "c589730c0378b283a9f406baffe2b56c98e39178bcefb840ec22d0b3245c9981ffa8b9ef7904fcb303237c1b2d9a54523b769cf7ca563b8ea578a7219a526802"
+          },
+          "approval": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "approval",
+              "issuer": "test:approval",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_digest": "83e10ac2ea6b9f6d2734d61ed43be1d85617bc4c3b3dfa2d2274478d684edb21",
+                "serving_environment_id": "serve-1",
+                "decision": "approve",
+                "conditions": [
+                  {
+                    "field": "usage",
+                    "op": "eq",
+                    "value": "internal"
+                  },
+                  {
+                    "field": "region",
+                    "op": "eq",
+                    "value": "region-a"
+                  }
+                ]
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "1d9676cff070bc6a49186d05dc386539592f789668d1f99cb5480d1a8edd55166522cec3a24359d36c4942b71f43ff788199c834726098ead448c5a90247540f"
+          }
+        },
+        "context": {
+          "now": "2026-09-15T12:30:00Z",
+          "artifact_hex": "53796e74686574696320575331206d6f64656c20776569676874730a",
+          "target_environment": "serve-1",
+          "challenge": "local-fresh-challenge-001",
+          "usage": "internal",
+          "region": "region-a",
+          "policy": {
+            "evaluation_domain": "example-bank/internal-assistant",
+            "required_exclusions": [
+              "remote-host-software"
+            ],
+            "test_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "serving_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "keys": [
+              {
+                "issuer": "test:evaluation",
+                "key_id": "test-key-1",
+                "public_key": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+                "roles": [
+                  "evaluation"
+                ],
+                "evaluation_domains": [
+                  "example-bank/internal-assistant"
+                ],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:test_environment",
+                "key_id": "test-key-1",
+                "public_key": "8139770ea87d175f56a35466c34c7ecccb8d8a91b4ee37a25df60f5b8fc9b394",
+                "roles": [
+                  "test_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:serving_environment",
+                "key_id": "test-key-1",
+                "public_key": "ed4928c628d1c2c6eae90338905995612959273a5c63f93636c14614ac8737d1",
+                "roles": [
+                  "serving_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:approval",
+                "key_id": "test-key-1",
+                "public_key": "ca93ac1705187071d67b83c7ff0efe8108e8ec4530575d7726879333dbdabe7c",
+                "roles": [
+                  "approval"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-width-before-authority-test_environment",
+      "status": "candidate_against_proposed",
+      "claim": "Malformed measurement width preempts authentication failures",
+      "twin": "admit-conditional",
+      "input": {
+        "bundle": {
+          "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+          "test_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "test_environment",
+              "issuer": "untrusted:appraiser",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "test-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "historical-test-challenge",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "6f2fa235ba9c7815bb81fc2449dc4babdaeb2bab9a5a9479ac6b11822f3744aff064d30e85e8193c1bfa49439045721dad7aad7be448dbf923c45d31dc48570c"
+          },
+          "serving_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "serving_environment",
+              "issuer": "test:serving_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "serve-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "local-fresh-challenge-001",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "27879d7df695d179a4d474d5135cb7f21a27c8201f06357765eda78a8d30ab204ad3e9e548a61898913e868ef1ffea4ade84ff54d7021250b9901a4e1118700c"
+          },
+          "evaluation": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "evaluation",
+              "issuer": "test:evaluation",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_domain": "example-bank/internal-assistant",
+                "test_environment_digest": "906cf384ce4066732f1998724c46602fe4f405eb80ee1c8e58defd44efe08246",
+                "harness_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+                "log_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "80bdbfe9949ea841051dfe5283ae54d371dab4ee3190c4a9dd3b3320b1cc157a23c8936bbfce2a3841a98271717ea06589faeb327c4583de04cfb3cbec9e6a0a"
+          },
+          "approval": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "approval",
+              "issuer": "test:approval",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_digest": "edd8ce2de95db28a53ab93135f7d6c82f9b0cd29dc654ce15bbef047ec4c8a05",
+                "serving_environment_id": "serve-1",
+                "decision": "approve",
+                "conditions": [
+                  {
+                    "field": "usage",
+                    "op": "eq",
+                    "value": "internal"
+                  },
+                  {
+                    "field": "region",
+                    "op": "eq",
+                    "value": "region-a"
+                  }
+                ]
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "e726737cf84784c651b9e3c3f0595f0f8ae99804e2ef13e1a77aa4e97ff6066e9027be4cf6ff9ea344ec08a5a7c740b9cf43732e1506c6d359b4e6b46190080c"
+          }
+        },
+        "context": {
+          "now": "2026-09-15T12:30:00Z",
+          "artifact_hex": "53796e74686574696320575331206d6f64656c20776569676874730a",
+          "target_environment": "serve-1",
+          "challenge": "local-fresh-challenge-001",
+          "usage": "internal",
+          "region": "region-a",
+          "policy": {
+            "evaluation_domain": "example-bank/internal-assistant",
+            "required_exclusions": [
+              "remote-host-software"
+            ],
+            "test_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "serving_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "keys": [
+              {
+                "issuer": "test:evaluation",
+                "key_id": "test-key-1",
+                "public_key": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+                "roles": [
+                  "evaluation"
+                ],
+                "evaluation_domains": [
+                  "example-bank/internal-assistant"
+                ],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:test_environment",
+                "key_id": "test-key-1",
+                "public_key": "8139770ea87d175f56a35466c34c7ecccb8d8a91b4ee37a25df60f5b8fc9b394",
+                "roles": [
+                  "test_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:serving_environment",
+                "key_id": "test-key-1",
+                "public_key": "ed4928c628d1c2c6eae90338905995612959273a5c63f93636c14614ac8737d1",
+                "roles": [
+                  "serving_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:approval",
+                "key_id": "test-key-1",
+                "public_key": "ca93ac1705187071d67b83c7ff0efe8108e8ec4530575d7726879333dbdabe7c",
+                "roles": [
+                  "approval"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-width-before-signature-serving_environment",
+      "status": "candidate_against_proposed",
+      "claim": "Malformed measurement width preempts authentication failures",
+      "twin": "admit-conditional",
+      "input": {
+        "bundle": {
+          "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+          "test_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "test_environment",
+              "issuer": "test:test_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "test-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "historical-test-challenge",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "9381f488cbdc5eea4ddc6d5d487c1201ac0a5b2f0b447901dc150d141385800fe619d8aeb61bb0bb9f48dfef3cff6044ff2607c53d32418800abcb87e6c59307"
+          },
+          "serving_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "serving_environment",
+              "issuer": "test:serving_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "serve-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "local-fresh-challenge-001",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "evaluation": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "evaluation",
+              "issuer": "test:evaluation",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_domain": "example-bank/internal-assistant",
+                "test_environment_digest": "c733dee682c51a860cff9edbab2e42088f4e919e0a3bdb659e404035a9251e43",
+                "harness_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+                "log_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "bd60dbfda7d08f92de75a5e9e1439fb3e5f751fe258de1a2bc58011423f20575d0c59226f8d771ff1081f85f254f2306520e8563d6ec0feac9a15565a3fa7303"
+          },
+          "approval": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "approval",
+              "issuer": "test:approval",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_digest": "b9d2cdf3ccc43002209e6154d4d79bc0637a90dca1fcf921297f7b22f42f1619",
+                "serving_environment_id": "serve-1",
+                "decision": "approve",
+                "conditions": [
+                  {
+                    "field": "usage",
+                    "op": "eq",
+                    "value": "internal"
+                  },
+                  {
+                    "field": "region",
+                    "op": "eq",
+                    "value": "region-a"
+                  }
+                ]
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "e8480822f077bf9605015dbca61e7f159ffb488f33f24d6bf0402951d35ae50ef70befc5d37788b706330943dec716741f68e4ce0bf42627d7c9af85d53ccf06"
+          }
+        },
+        "context": {
+          "now": "2026-09-15T12:30:00Z",
+          "artifact_hex": "53796e74686574696320575331206d6f64656c20776569676874730a",
+          "target_environment": "serve-1",
+          "challenge": "local-fresh-challenge-001",
+          "usage": "internal",
+          "region": "region-a",
+          "policy": {
+            "evaluation_domain": "example-bank/internal-assistant",
+            "required_exclusions": [
+              "remote-host-software"
+            ],
+            "test_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "serving_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "keys": [
+              {
+                "issuer": "test:evaluation",
+                "key_id": "test-key-1",
+                "public_key": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+                "roles": [
+                  "evaluation"
+                ],
+                "evaluation_domains": [
+                  "example-bank/internal-assistant"
+                ],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:test_environment",
+                "key_id": "test-key-1",
+                "public_key": "8139770ea87d175f56a35466c34c7ecccb8d8a91b4ee37a25df60f5b8fc9b394",
+                "roles": [
+                  "test_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:serving_environment",
+                "key_id": "test-key-1",
+                "public_key": "ed4928c628d1c2c6eae90338905995612959273a5c63f93636c14614ac8737d1",
+                "roles": [
+                  "serving_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:approval",
+                "key_id": "test-key-1",
+                "public_key": "ca93ac1705187071d67b83c7ff0efe8108e8ec4530575d7726879333dbdabe7c",
+                "roles": [
+                  "approval"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-width-before-authority-serving_environment",
+      "status": "candidate_against_proposed",
+      "claim": "Malformed measurement width preempts authentication failures",
+      "twin": "admit-conditional",
+      "input": {
+        "bundle": {
+          "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+          "test_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "test_environment",
+              "issuer": "test:test_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "test-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "historical-test-challenge",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "9381f488cbdc5eea4ddc6d5d487c1201ac0a5b2f0b447901dc150d141385800fe619d8aeb61bb0bb9f48dfef3cff6044ff2607c53d32418800abcb87e6c59307"
+          },
+          "serving_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "serving_environment",
+              "issuer": "untrusted:appraiser",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "serve-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "local-fresh-challenge-001",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "698b77187f63830099903c4f0adb97494bef35e09a649d20c666c215424ccaa947f7ab8f154391095bd7304b790f9ab1b5bd0d9bf127a5d660322d1c9e58cd06"
+          },
+          "evaluation": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "evaluation",
+              "issuer": "test:evaluation",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_domain": "example-bank/internal-assistant",
+                "test_environment_digest": "c733dee682c51a860cff9edbab2e42088f4e919e0a3bdb659e404035a9251e43",
+                "harness_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+                "log_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "bd60dbfda7d08f92de75a5e9e1439fb3e5f751fe258de1a2bc58011423f20575d0c59226f8d771ff1081f85f254f2306520e8563d6ec0feac9a15565a3fa7303"
+          },
+          "approval": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "approval",
+              "issuer": "test:approval",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_digest": "b9d2cdf3ccc43002209e6154d4d79bc0637a90dca1fcf921297f7b22f42f1619",
+                "serving_environment_id": "serve-1",
+                "decision": "approve",
+                "conditions": [
+                  {
+                    "field": "usage",
+                    "op": "eq",
+                    "value": "internal"
+                  },
+                  {
+                    "field": "region",
+                    "op": "eq",
+                    "value": "region-a"
+                  }
+                ]
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "e8480822f077bf9605015dbca61e7f159ffb488f33f24d6bf0402951d35ae50ef70befc5d37788b706330943dec716741f68e4ce0bf42627d7c9af85d53ccf06"
+          }
+        },
+        "context": {
+          "now": "2026-09-15T12:30:00Z",
+          "artifact_hex": "53796e74686574696320575331206d6f64656c20776569676874730a",
+          "target_environment": "serve-1",
+          "challenge": "local-fresh-challenge-001",
+          "usage": "internal",
+          "region": "region-a",
+          "policy": {
+            "evaluation_domain": "example-bank/internal-assistant",
+            "required_exclusions": [
+              "remote-host-software"
+            ],
+            "test_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "serving_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "keys": [
+              {
+                "issuer": "test:evaluation",
+                "key_id": "test-key-1",
+                "public_key": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+                "roles": [
+                  "evaluation"
+                ],
+                "evaluation_domains": [
+                  "example-bank/internal-assistant"
+                ],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:test_environment",
+                "key_id": "test-key-1",
+                "public_key": "8139770ea87d175f56a35466c34c7ecccb8d8a91b4ee37a25df60f5b8fc9b394",
+                "roles": [
+                  "test_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:serving_environment",
+                "key_id": "test-key-1",
+                "public_key": "ed4928c628d1c2c6eae90338905995612959273a5c63f93636c14614ac8737d1",
+                "roles": [
+                  "serving_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:approval",
+                "key_id": "test-key-1",
+                "public_key": "ca93ac1705187071d67b83c7ff0efe8108e8ec4530575d7726879333dbdabe7c",
+                "roles": [
+                  "approval"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-window-before-profile",
+      "status": "candidate_against_proposed",
+      "claim": "Malformed validity preempts an unsupported profile",
+      "twin": "admit-conditional",
+      "input": {
+        "bundle": {
+          "profile": "unknown/2",
+          "test_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "test_environment",
+              "issuer": "test:test_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "test-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "historical-test-challenge",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "9381f488cbdc5eea4ddc6d5d487c1201ac0a5b2f0b447901dc150d141385800fe619d8aeb61bb0bb9f48dfef3cff6044ff2607c53d32418800abcb87e6c59307"
+          },
+          "serving_environment": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "serving_environment",
+              "issuer": "test:serving_environment",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "environment_id": "serve-1",
+                "measurement": {
+                  "domain": "synthetic-snp-launch",
+                  "algorithm": "sha384",
+                  "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+                },
+                "adversary_exclusions": [
+                  "remote-host-software"
+                ],
+                "nonce": "local-fresh-challenge-001",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "27879d7df695d179a4d474d5135cb7f21a27c8201f06357765eda78a8d30ab204ad3e9e548a61898913e868ef1ffea4ade84ff54d7021250b9901a4e1118700c"
+          },
+          "evaluation": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "evaluation",
+              "issuer": "test:evaluation",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T13:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_domain": "example-bank/internal-assistant",
+                "test_environment_digest": "c733dee682c51a860cff9edbab2e42088f4e919e0a3bdb659e404035a9251e43",
+                "harness_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+                "log_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+                "outcome": "pass"
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "bd60dbfda7d08f92de75a5e9e1439fb3e5f751fe258de1a2bc58011423f20575d0c59226f8d771ff1081f85f254f2306520e8563d6ec0feac9a15565a3fa7303"
+          },
+          "approval": {
+            "payload": {
+              "profile": "ws1-deployment-experiment/0.1+jcs-ed25519",
+              "kind": "approval",
+              "issuer": "test:approval",
+              "key_id": "test-key-1",
+              "valid_from": "2026-09-15T12:00:00Z",
+              "valid_until": "2026-09-15T12:00:00Z",
+              "subject": {
+                "domain": "weight-bytes/sha256",
+                "sha256": "3c6d3b525b9e348afe5544a6caab14d2ae18aca8cbc2ddd49e8b562fca80813f"
+              },
+              "details": {
+                "evaluation_digest": "b9d2cdf3ccc43002209e6154d4d79bc0637a90dca1fcf921297f7b22f42f1619",
+                "serving_environment_id": "serve-1",
+                "decision": "approve",
+                "conditions": [
+                  {
+                    "field": "usage",
+                    "op": "eq",
+                    "value": "internal"
+                  },
+                  {
+                    "field": "region",
+                    "op": "eq",
+                    "value": "region-a"
+                  }
+                ]
+              },
+              "annotations": {
+                "": "private-use label",
+                "😀": "München synthetic fixture"
+              }
+            },
+            "signature": "76c938b84c524212fca51550ef3062ea65d80c92128ebae36ebf96d634dda292a25701b38dddad6889921300fa6f412226914c3dd9c5a0fe9b95e94a62eb8a0d"
+          }
+        },
+        "context": {
+          "now": "2026-09-15T12:30:00Z",
+          "artifact_hex": "53796e74686574696320575331206d6f64656c20776569676874730a",
+          "target_environment": "serve-1",
+          "challenge": "local-fresh-challenge-001",
+          "usage": "internal",
+          "region": "region-a",
+          "policy": {
+            "evaluation_domain": "example-bank/internal-assistant",
+            "required_exclusions": [
+              "remote-host-software"
+            ],
+            "test_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "serving_measurement": {
+              "domain": "synthetic-snp-launch",
+              "algorithm": "sha384",
+              "digest": "abababababababababababababababababababababababababababababababababababababababababababababababab"
+            },
+            "keys": [
+              {
+                "issuer": "test:evaluation",
+                "key_id": "test-key-1",
+                "public_key": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+                "roles": [
+                  "evaluation"
+                ],
+                "evaluation_domains": [
+                  "example-bank/internal-assistant"
+                ],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:test_environment",
+                "key_id": "test-key-1",
+                "public_key": "8139770ea87d175f56a35466c34c7ecccb8d8a91b4ee37a25df60f5b8fc9b394",
+                "roles": [
+                  "test_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:serving_environment",
+                "key_id": "test-key-1",
+                "public_key": "ed4928c628d1c2c6eae90338905995612959273a5c63f93636c14614ac8737d1",
+                "roles": [
+                  "serving_environment"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              },
+              {
+                "issuer": "test:approval",
+                "key_id": "test-key-1",
+                "public_key": "ca93ac1705187071d67b83c7ff0efe8108e8ec4530575d7726879333dbdabe7c",
+                "roles": [
+                  "approval"
+                ],
+                "evaluation_domains": [],
+                "valid_from": "2026-09-15T12:00:00Z",
+                "valid_until": "2026-09-15T13:00:00Z",
+                "revocation": "good"
+              }
+            ]
+          }
+        }
+      },
+      "expected": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "VALIDITY_ORDER"
+        ]
+      }
+    },
+    {
       "id": "duplicate-trust-key",
       "status": "candidate_against_proposed",
       "claim": "Ambiguous local key enrollment is a context error",

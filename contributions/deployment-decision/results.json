@@ -1,7 +1,7 @@
 {
   "candidate": true,
-  "count": 74,
-  "matched": 74,
+  "count": 79,
+  "matched": 79,
   "results": [
     {
       "id": "admit-conditional",
@@ -837,6 +837,66 @@
         "decision": "refuse",
         "codes": [
           "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-width-before-signature-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-width-before-authority-test_environment",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-width-before-signature-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-width-before-authority-serving_environment",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "MEASUREMENT_SHAPE"
+        ]
+      }
+    },
+    {
+      "id": "malformed-window-before-profile",
+      "matched": true,
+      "actual": {
+        "status": "input_error",
+        "verdict": null,
+        "decision": "refuse",
+        "codes": [
+          "VALIDITY_ORDER"
         ]
       }
     },

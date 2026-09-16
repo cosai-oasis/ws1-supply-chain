@@ -123,6 +123,21 @@ export function fixtures() {
   add('invalid-date', 'Impossible dates are input errors', i => changeSigned(i, 'evaluation', p => {p.valid_until = '2026-02-30T13:00:00Z';}), inputError('INPUT_SCHEMA'));
   add('reversed-validity', 'A reversed window is malformed', i => changeSigned(i, 'evaluation', p => {p.valid_until = p.valid_from;}), inputError('VALIDITY_ORDER'));
   add('wrong-measurement-width', 'Algorithm and measurement width must agree', i => changeSigned(i, 'serving_environment', p => {p.details.measurement.digest = 'ab'.repeat(32);}), inputError('MEASUREMENT_SHAPE'));
+  for (const kind of ['test_environment', 'serving_environment']) {
+    for (const failure of ['signature', 'authority']) {
+      add(`malformed-width-before-${failure}-${kind}`, 'Malformed measurement width preempts authentication failures', i => {
+        changeSigned(i, kind, p => {
+          p.details.measurement.digest = 'ab'.repeat(32);
+          if (failure === 'authority') p.issuer = 'untrusted:appraiser';
+        });
+        if (failure === 'signature') i.bundle[kind].signature = '00'.repeat(64);
+      }, inputError('MEASUREMENT_SHAPE'));
+    }
+  }
+  add('malformed-window-before-profile', 'Malformed validity preempts an unsupported profile', i => {
+    changeSigned(i, 'approval', p => {p.valid_until = p.valid_from;});
+    i.bundle.profile = 'unknown/2';
+  }, inputError('VALIDITY_ORDER'));
   add('duplicate-trust-key', 'Ambiguous local key enrollment is a context error', i => {i.context.policy.keys.push(clone(i.context.policy.keys[0]));}, inputError('DUPLICATE_TRUST_KEY'));
   add('malformed-local-context', 'Missing local decision time is not an evidence verdict', i => {delete i.context.now;}, inputError('CONTEXT_SCHEMA'));
   add('invalid-unicode', 'Lone surrogates are rejected before canonicalization', i => {i.bundle.evaluation.payload.annotations.note = '\ud800';}, inputError('INVALID_UNICODE'));

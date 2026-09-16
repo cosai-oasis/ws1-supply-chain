@@ -2,12 +2,13 @@
   "status": "pass",
   "runtime": "v24.18.1",
   "platform": "win32",
-  "candidates": 74,
-  "matched": 74,
+  "candidates": 79,
+  "matched": 79,
   "checks": [
     "generated artifacts reproduce byte for byte",
     "unique complete corpus with an accepting twin for every refusal",
     "every candidate matches exact status, verdict, admission and reason codes",
+    "deeply nested malformed JSON returns a processing error without throwing",
     "object-property arrival order does not change any result",
     "condition order does not skip the last condition",
     "JCS UTF-16 sorting and UTF-8 text have a literal independent expectation",
@@ -17,7 +18,7 @@
     "read-only runner succeeds without changing committed vectors",
     "runner rejects changed or incomplete fixtures and preserves their bytes"
   ],
-  "mutantsKilled": 23,
+  "mutantsKilled": 25,
   "mutations": [
     {
       "name": "signature",
@@ -92,6 +93,23 @@
         "wrong-measurement-domain-test_environment",
         "wrong-measurement-serving_environment",
         "wrong-measurement-domain-serving_environment"
+      ]
+    },
+    {
+      "name": "measurement-shape",
+      "detectedBy": [
+        "wrong-measurement-width",
+        "malformed-width-before-signature-test_environment",
+        "malformed-width-before-authority-test_environment",
+        "malformed-width-before-signature-serving_environment",
+        "malformed-width-before-authority-serving_environment"
+      ]
+    },
+    {
+      "name": "validity-order",
+      "detectedBy": [
+        "reversed-validity",
+        "malformed-window-before-profile"
       ]
     },
     {
@@ -202,17 +220,17 @@
       ]
     }
   ],
-  "vectorSha256": "aa64ca58a1f6738de47494ca8319aaf6cf7638ea5b2949b4cd38f804f3443e5c",
+  "vectorSha256": "9d359cd28221634fe860547a6f30fc0971eb097bfe80293e59f816ed43ae27e9",
   "artifactSha256": {
-    "checker.mjs": "e80c22b7098f55bbcb91d6aea4e5ad7f5902c49c291832c0d04ef7e1a312990a",
+    "checker.mjs": "fc4df337bccebd57ce694161781549d9d3786df5071ee06de0235c232882db7a",
     "bundle.schema.json": "0229356485f31b49c846279db0024e351ac5d88119cac96a7031613704cc7938",
     "context.schema.json": "988df2c04ed35218fc98e91ecd0faf2271f93350c62032fb43404786226cac33",
     "schema.mjs": "faa92219a456bbae60c5323c02a9bceeecebf02cda91ef193ab09fd1a582eb6f",
-    "generate.mjs": "0ade81f2f4f13da2ee3bc4b5e1492ffbd97448fe5e04b548ae12ab5f2ea9a9e3",
+    "generate.mjs": "e4d6166c909b56c241eb48ea6058b5d05c9db7160acf7ddafdcbfd1fc3409ba2",
     "run.mjs": "6f21a345ef48b934fb89e09c345546cda21bdb8d00e7d823f7e500e46cc1079d",
-    "test.mjs": "d6381a345f1a96c1c30c3ece6fec321c2ca1496f2fff84d76c50bc104ffcb195",
+    "test.mjs": "a49a030053a3c63941b966a2ec06a5def84c4928b471b68445abff0d59ffbe2b",
     "package-lock.json": "800dbab96cddad689b19f7cfa4b87ae6f1e796ca5fa80d24a09a03c66eaaf0b9",
-    "corpus-manifest.json": "1803c66024c8bfbd5e7fb6da22793fc9e4fdf12acd77c1301a5b3c923d64e61a"
+    "corpus-manifest.json": "c53de6c4968d400de862175465954c591d29770311c3074dd80d505660088b16"
   },
   "limits": [
     "One locally authored implementation and corpus; not independent interoperability.",

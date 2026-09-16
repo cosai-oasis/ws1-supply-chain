@@ -1,5 +1,5 @@
 {
-  "count": 74,
+  "count": 79,
   "ids": [
     "admit-conditional",
     "admit-unconditional",
@@ -71,10 +71,15 @@
     "invalid-date",
     "reversed-validity",
     "wrong-measurement-width",
+    "malformed-width-before-signature-test_environment",
+    "malformed-width-before-authority-test_environment",
+    "malformed-width-before-signature-serving_environment",
+    "malformed-width-before-authority-serving_environment",
+    "malformed-window-before-profile",
     "duplicate-trust-key",
     "malformed-local-context",
     "invalid-unicode",
     "leap-second-outside-profile"
   ],
-  "sha256": "aa64ca58a1f6738de47494ca8319aaf6cf7638ea5b2949b4cd38f804f3443e5c"
+  "sha256": "9d359cd28221634fe860547a6f30fc0971eb097bfe80293e59f816ed43ae27e9"
 }

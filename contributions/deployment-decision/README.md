@@ -6,14 +6,14 @@
 
 A relying party asks: **may these exact model-weight bytes enter this specific serving environment under this approval?**
 
-The package contains a JSON Schema for the evidence bundle, a separate schema for local policy and observations, a small offline checker, and 74 language-neutral candidate vectors. Four cases admit; 70 refuse for a specified contradiction, missing premise, unsupported profile, or malformed input. Every refusal names an accepting twin. The reference implementation checks real Ed25519 signatures on synthetic statements.
+The package contains a JSON Schema for the evidence bundle, a separate schema for local policy and observations, a small offline checker, and 79 language-neutral candidate vectors. Four cases admit; 75 refuse for a specified contradiction, missing premise, unsupported profile, or malformed input. Every refusal names an accepting twin. The reference implementation checks real Ed25519 signatures on synthetic statements.
 
 The output separates verification from admission:
 
 | Processing status | Evidence verdict | Admission | Meaning |
 |---|---|---|---|
 | `complete` | `pass` | `admit` | All requirements of this experimental policy are established |
-| `complete` | `fail` | `refuse` | At least one authenticated claim or binding contradicts policy |
+| `complete` | `fail` | `refuse` | A required signature, authority check, authenticated claim or binding fails policy |
 | `complete` | `not_established` | `refuse` | A required premise is unavailable or inconclusive |
 | `input_error` | `null` | `refuse` | The evidence or local context is malformed |
 | `unsupported` | `null` | `refuse` | The named cryptographic/serialization profile is unsupported |
@@ -38,7 +38,7 @@ npm run check
 
 On Windows PowerShell with script execution disabled, use `npm.cmd` for those commands. Dependencies are pinned in `package-lock.json`. Tests require no network after installation.
 
-`npm test` compares generated schemas and vectors with committed bytes, runs every case, permutes object-property order, checks a literal Unicode canonicalization oracle, verifies that always-admit and always-refuse implementations cannot pass, and removes 23 production checks in disposable copies. Every removed check must change at least one expected result. It writes `verification.json` and deletes the disposable copies.
+`npm test` compares generated schemas and vectors with committed bytes, runs every case, permutes object-property order, checks a literal Unicode canonicalization oracle, checks deeply nested malformed input, verifies that always-admit and always-refuse implementations cannot pass, and removes 25 production checks in disposable copies. Every removed check must change at least one expected result. It writes `verification.json` and deletes the disposable copies.
 
 `npm run check` checks the corpus digest and exact case IDs against `corpus-manifest.json`, then evaluates the existing corpus without regenerating or repairing it. The manifest detects local drift, not malicious replacement of both files. Tests remove a case and alter an expectation separately, require rejection, and verify the changed bytes are left untouched. Expected answers are supplied only to the scoring runner; the checker receives `bundle` and `context` as separate arguments. To intentionally edit the authored fixtures or schemas, change `generate.mjs` or `schema.mjs`, run `npm run generate`, and inspect the resulting diff. Generation never consults checker verdicts.
 
@@ -66,7 +66,7 @@ An additional signed **approval** binds the evaluation to the serving target and
 - No online revocation, certificate chains, timestamp service, transparency log, physical-attack resistance, benchmark execution, raw-log fetching, or running deployment is tested. Log and harness digests are signed references; their source bytes and quality are not checked here.
 - All claims and authority entries are checked at the decision time. Historical appraisal, evaluator authority at evaluation time, superseding claims, maximum evidence age, clock skew, continuous conditions, nonce consumption and distributed races remain unresolved. A challenge match alone does not prevent repeated use of the same challenge.
 - The checker API accepts already-parsed JSON values. A wire adapter must reject duplicate object names before parsing; ordinary `JSON.parse` cannot recover discarded duplicates. The committed corpus does not establish wire-parser conformance. Lone surrogate strings are explicitly rejected. Only whole-second UTC timestamps without leap seconds are supported.
-- The reference checker and corpus were authored in the same local task and share the canonicalization library and Node crypto implementation. Mutation results measure sensitivity to the 23 listed defects. They do not establish complete coverage, independent interoperability, or CoSAI conformance.
+- The reference checker and corpus were authored in the same local task and share the canonicalization library and Node crypto implementation. Mutation results measure sensitivity to the 25 listed defects. They do not establish complete coverage, independent interoperability, or CoSAI conformance.
 
 ## Source and disposition
 

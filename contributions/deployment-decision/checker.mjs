@@ -19,8 +19,21 @@ export const signingBytes = payload => Buffer.concat([PREFIX, Buffer.from(canoni
 const inWindow = (now, item) => item.valid_from <= now && now < item.valid_until;
 const sameMeasurement = (a, b) => a.domain === b.domain && a.algorithm === b.algorithm && a.digest === b.digest;
 const finish = (status, verdict, codes) => ({status, verdict, decision: status === 'complete' && verdict === 'pass' ? 'admit' : 'refuse', codes: [...new Set(codes)].sort()});
-const wellFormed = value => typeof value === 'string' ? value.isWellFormed() :
-  value && typeof value === 'object' ? Object.entries(value).every(([k, v]) => k.isWellFormed() && wellFormed(v)) : true;
+const wellFormed = value => {
+  // Walk parsed JSON without consuming the call stack on malformed nested input.
+  const pending = [value];
+  while (pending.length) {
+    const item = pending.pop();
+    if (typeof item === 'string' && !item.isWellFormed()) return false;
+    if (item && typeof item === 'object') {
+      for (const [key, child] of Object.entries(item)) {
+        if (!key.isWellFormed()) return false;
+        pending.push(child);
+      }
+    }
+  }
+  return true;
+};
 
 // Inputs are JSON values already parsed with duplicate-key rejection at the wire boundary.
 // This function has no network access, fixture expectations, clock lookup, or private keys.
@@ -30,11 +43,15 @@ export function evaluate(bundle, context) {
   if (!validContext(context)) return finish('input_error', null, ['CONTEXT_SCHEMA']);
   const ids = context.policy.keys.map(k => JSON.stringify([k.issuer, k.key_id]));
   if (new Set(ids).size !== ids.length) return finish('input_error', null, ['DUPLICATE_TRUST_KEY']);
-  for (const m of [context.policy.test_measurement, context.policy.serving_measurement]) {
+  // Structural processing errors precede profile, authority and signature results.
+  const payloads = kinds.filter(k => bundle[k] !== null).map(k => bundle[k].payload);
+  const measurements = [context.policy.test_measurement, context.policy.serving_measurement,
+    ...payloads.filter(p => p.kind.endsWith('_environment')).map(p => p.details.measurement)];
+  for (const m of measurements) {
     if (m.digest.length !== (m.algorithm === 'sha256' ? 64 : 96)) return finish('input_error', null, ['MEASUREMENT_SHAPE']);
   }
-  for (const key of context.policy.keys) {
-    if (key.valid_from >= key.valid_until) return finish('input_error', null, ['VALIDITY_ORDER']);
+  for (const item of [...context.policy.keys, ...payloads]) {
+    if (item.valid_from >= item.valid_until) return finish('input_error', null, ['VALIDITY_ORDER']);
   }
   if (bundle.profile !== PROFILE || kinds.some(k => bundle[k] && bundle[k].payload.profile !== PROFILE)) {
     return finish('unsupported', null, ['UNSUPPORTED_PROFILE']);
@@ -48,7 +65,6 @@ export function evaluate(bundle, context) {
     const env = bundle[kind];
     if (env === null) { unknown(`MISSING_${kind.toUpperCase()}`); continue; }
     const p = env.payload;
-    if (p.valid_from >= p.valid_until) return finish('input_error', null, ['VALIDITY_ORDER']);
     const key = context.policy.keys.find(k => k.issuer === p.issuer && k.key_id === p.key_id);
     if (!key || !key.roles.includes(kind) || (kind === 'evaluation' && !key.evaluation_domains.includes(context.policy.evaluation_domain))) {
       fail(`AUTHORITY_${kind.toUpperCase()}`); continue;
@@ -65,7 +81,6 @@ export function evaluate(bundle, context) {
     if (p.subject.domain !== 'weight-bytes/sha256' || p.subject.sha256 !== artifact) fail(`ARTIFACT_${kind.toUpperCase()}`);
     if (kind.endsWith('_environment')) {
       const d = p.details;
-      if (d.measurement.digest.length !== (d.measurement.algorithm === 'sha256' ? 64 : 96)) return finish('input_error', null, ['MEASUREMENT_SHAPE']);
       const expected = kind === 'test_environment' ? context.policy.test_measurement : context.policy.serving_measurement;
       if (!sameMeasurement(d.measurement, expected)) fail(`MEASUREMENT_${kind.toUpperCase()}`);
       if (context.policy.required_exclusions.some(x => !d.adversary_exclusions.includes(x))) fail(`THREAT_${kind.toUpperCase()}`);

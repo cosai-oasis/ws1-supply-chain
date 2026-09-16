@@ -22,7 +22,7 @@ Unicode property ordering uses UTF-16 code units, and non-ASCII strings remain U
 
 ## Evaluation rules
 
-1. Reject malformed bundle/context structure, invalid Unicode, ambiguous local keys and reversed validity windows. An unknown profile has a separate unsupported status. No verdict is issued for those processing failures.
+1. Reject malformed bundle/context structure, invalid Unicode, ambiguous local keys, inconsistent measurement widths and reversed validity windows before profile selection or authentication. These input errors take precedence even when a statement also has an unknown issuer, a bad signature or an unsupported profile. An otherwise well-formed unknown profile has a separate unsupported status. No verdict is issued for those processing failures.
 2. For each non-null statement, resolve the issuer/key pair only in local policy, then check role and evaluator domain authorization. Verify the signature before using the statement's semantic claims. An unknown/unauthorized key or bad signature fails the candidate policy.
 3. Check every authenticated statement and its signing-key entry at local `now`. Use `valid_from <= now < valid_until`. `valid_from` is an effective-time boundary, not proof of issuance time. Revoked keys fail; unknown revocation leaves the result not established.
 4. Recompute the weight-byte SHA-256. Each authenticated statement must identify those bytes in the `weight-bytes/sha256` domain. A registry-manifest digest in that slot fails even if it has the same length or value.
@@ -48,7 +48,7 @@ The machine-readable corpus defines exact expected status, verdict, admission an
 | Conditions | Both positions fail independently; both can be unknown; failure plus missing evidence preserves both reasons |
 | Input/profile | Missing slot, boolean outcome, unsupported condition operator, producer trust-store injection, dates, measurement width, duplicate local keys, invalid Unicode |
 
-The reference test suite also permutes object-property arrival order. Array order has its declared meaning: conditions are conjoined; statements are named slots. This package is not an unordered event-stream reconstruction experiment.
+The reference test suite also permutes object-property arrival order and checks that deeply nested malformed JSON returns a processing error without exhausting the call stack. Array order has its declared meaning: conditions are conjoined; statements are named slots. This package is not an unordered event-stream reconstruction experiment.
 
 ## Existing mechanisms and adapter work
 
