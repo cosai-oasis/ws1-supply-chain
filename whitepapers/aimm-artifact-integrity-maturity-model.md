@@ -1,39 +1,44 @@
  
 # AIMM: Artifact Integrity Maturity Model for AI/ML Supply Chain Trust and Provenance
 
-[1\. Introduction](#1.-introduction)
+[ Table of contents
 
-[2\. Rationale for an Artifact Integrity Maturity Model](#2.-rationale-for-an-artifact-integrity-maturity-model)
-
-[3\. Key Terms and Definitions: AI/ML Supply Chain](#3.-key-terms-and-definitions:-ai/ml-supply-chain)
-
-[4\. Practical Application: Selecting Artifact Maturity Levels by Use Cases](#4.-practical-application:-selecting-artifact-maturity-levels-by-use-cases)
-
-[5\. Maturity Levels](#5.-maturity-levels)
-
-[5.1 Maturity Level 1: Basic Artifact Integrity](#5.1-maturity-level-1:-basic-artifact-integrity)
-
-[5.2 Maturity Level 2: Provenance and Lineage](#5.2-maturity-level-2:-provenance-and-lineage)
-
-[5.3 Maturity Level 3: Structured Attestations for Policy Automation](#5.3-maturity-level-3:-structured-attestations-for-policy-automation)
-
-[6\. Conflicting Claims and Multi-Party Claim Reconciliation](#6.-conflicting-claims-and-multi-party-claim-reconciliation)
-
-[7\. Agent Considerations](#7.-agent-considerations)
-
-[8\. Incremental Adoption Strategies](#8.-incremental-adoption-strategies)
-
-[9\. Scope and Boundaries](#9.-scope-and-boundaries)
-
-[10\. Ecosystem context](#10.-ecosystem-context)
-
-[11\. Conclusion](#11.-conclusion)
-
-[12\. Sources](#12.-sources)
-
-[13\. Contributors and Acknowledgements](#13.-contributors-and-acknowledgements)
-
-[14\. Appendix](#14.-appendix)
+- [AIMM: Artifact Integrity Maturity Model for AI/ML Supply Chain Trust and Provenance](#aimm-artifact-integrity-maturity-model-for-aiml-supply-chain-trust-and-provenance)
+  - [1\. Introduction {#1.-introduction}](#1-introduction-1-introduction)
+  - [2\. Rationale for an Artifact Integrity Maturity Model {#2.-rationale-for-an-artifact-integrity-maturity-model}](#2-rationale-for-an-artifact-integrity-maturity-model-2-rationale-for-an-artifact-integrity-maturity-model)
+  - [3\. Key Terms and Definitions: AI/ML Supply Chain  {#3.-key-terms-and-definitions:-ai/ml-supply-chain}](#3-key-terms-and-definitions-aiml-supply-chain--3-key-terms-and-definitions-aiml-supply-chain)
+    - [Technical Terms](#technical-terms)
+    - [Roles](#roles)
+  - [4\. Practical Application: Selecting Artifact Maturity Levels by Use Cases {#4.-practical-application:-selecting-artifact-maturity-levels-by-use-cases}](#4-practical-application-selecting-artifact-maturity-levels-by-use-cases-4-practical-application-selecting-artifact-maturity-levels-by-use-cases)
+  - [5\. Maturity Levels {#5.-maturity-levels}](#5-maturity-levels-5-maturity-levels)
+  - [5.1 Maturity Level 1: Basic Artifact Integrity {#5.1-maturity-level-1:-basic-artifact-integrity}](#51-maturity-level-1-basic-artifact-integrity-51-maturity-level-1-basic-artifact-integrity)
+    - [Intent](#intent)
+    - [Benefits](#benefits)
+    - [Implementation Approach](#implementation-approach)
+    - [Limitations](#limitations)
+  - [5.2 Maturity Level 2: Provenance and Lineage {#5.2-maturity-level-2:-provenance-and-lineage}](#52-maturity-level-2-provenance-and-lineage-52-maturity-level-2-provenance-and-lineage)
+    - [Intent](#intent)
+    - [Benefits](#benefits)
+    - [Implementation Approach](#implementation-approach)
+    - [Limitations](#limitations)
+  - [5.3 Maturity Level 3: Structured Attestations for Policy Automation {#5.3-maturity-level-3:-structured-attestations-for-policy-automation}](#53-maturity-level-3-structured-attestations-for-policy-automation-53-maturity-level-3-structured-attestations-for-policy-automation)
+    - [Intent](#intent)
+    - [Benefits](#benefits)
+    - [Implementation Approach](#implementation-approach)
+    - [Limitations](#limitations)
+  - [6\. Conflicting Claims and Multi-Party Claim Reconciliation {#6.-conflicting-claims-and-multi-party-claim-reconciliation}](#6-conflicting-claims-and-multi-party-claim-reconciliation-6-conflicting-claims-and-multi-party-claim-reconciliation)
+  - [7\. Agent Considerations {#7.-agent-considerations}](#7-agent-considerations-7-agent-considerations)
+  - [8\. Incremental Adoption Strategies {#8.-incremental-adoption-strategies}](#8-incremental-adoption-strategies-8-incremental-adoption-strategies)
+  - [9\. Scope and Boundaries  {#9.-scope-and-boundaries}](#9-scope-and-boundaries--9-scope-and-boundaries)
+  - [10\. Ecosystem context {#10.-ecosystem-context}](#10-ecosystem-context-10-ecosystem-context)
+  - [11\. Conclusion {#11.-conclusion}](#11-conclusion-11-conclusion)
+  - [12\. Sources {#12.-sources}](#12-sources-12-sources)
+  - [13\. Contributors and Acknowledgements {#13.-contributors-and-acknowledgements}](#13-contributors-and-acknowledgements-13-contributors-and-acknowledgements)
+  - [14\. Appendix {#14.-appendix}](#14-appendix-14-appendix)
+    - [14.1 CoSAI Focus](#141-cosai-focus)
+    - [14.2 Guidelines on usage of more advanced AI systems (e.g. large language models (LLMs), multi-modal language models. etc) for drafting documents for OASIS CoSAI:](#142-guidelines-on-usage-of-more-advanced-ai-systems-eg-large-language-models-llms-multi-modal-language-models-etc-for-drafting-documents-for-oasis-cosai)
+    - [14.3 Disclaimer](#143-disclaimer)
+    - [14.4 Copyright Notice](#144-copyright-notice)
 
 ## 1\. Introduction {#1.-introduction}
 
