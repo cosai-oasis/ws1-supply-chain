@@ -1,46 +1,46 @@
  
 # AIMM: Artifact Integrity Maturity Model for AI/ML Supply Chain Trust and Provenance
 
-[ Table of contents
+## Table of contents
 
 - [AIMM: Artifact Integrity Maturity Model for AI/ML Supply Chain Trust and Provenance](#aimm-artifact-integrity-maturity-model-for-aiml-supply-chain-trust-and-provenance)
-  - [1\. Introduction {#1.-introduction}](#1-introduction-1-introduction)
-  - [2\. Rationale for an Artifact Integrity Maturity Model {#2.-rationale-for-an-artifact-integrity-maturity-model}](#2-rationale-for-an-artifact-integrity-maturity-model-2-rationale-for-an-artifact-integrity-maturity-model)
-  - [3\. Key Terms and Definitions: AI/ML Supply Chain  {#3.-key-terms-and-definitions:-ai/ml-supply-chain}](#3-key-terms-and-definitions-aiml-supply-chain--3-key-terms-and-definitions-aiml-supply-chain)
-    - [Technical Terms](#technical-terms)
-    - [Roles](#roles)
-  - [4\. Practical Application: Selecting Artifact Maturity Levels by Use Cases {#4.-practical-application:-selecting-artifact-maturity-levels-by-use-cases}](#4-practical-application-selecting-artifact-maturity-levels-by-use-cases-4-practical-application-selecting-artifact-maturity-levels-by-use-cases)
-  - [5\. Maturity Levels {#5.-maturity-levels}](#5-maturity-levels-5-maturity-levels)
-  - [5.1 Maturity Level 1: Basic Artifact Integrity {#5.1-maturity-level-1:-basic-artifact-integrity}](#51-maturity-level-1-basic-artifact-integrity-51-maturity-level-1-basic-artifact-integrity)
+   - [1\. Introduction](#1-introduction)
+   - [2\. Rationale for an Artifact Integrity Maturity Model](#2-rationale-for-an-artifact-integrity-maturity-model)
+   - [3\. Key Terms and Definitions: AI/ML Supply Chain](#3-key-terms-and-definitions-aiml-supply-chain)
+     - [Technical Terms](#technical-terms)
+     - [Roles](#roles)
+  - [4\. Practical Application: Selecting Artifact Maturity Levels by Use Cases](#4-practical-application-selecting-artifact-maturity-levels-by-use-cases)
+  - [5\. Maturity Levels](#5-maturity-levels)
+  - [5.1 Maturity Level 1: Basic Artifact Integrity](#51-maturity-level-1-basic-artifact-integrity)
     - [Intent](#intent)
     - [Benefits](#benefits)
     - [Implementation Approach](#implementation-approach)
     - [Limitations](#limitations)
-  - [5.2 Maturity Level 2: Provenance and Lineage {#5.2-maturity-level-2:-provenance-and-lineage}](#52-maturity-level-2-provenance-and-lineage-52-maturity-level-2-provenance-and-lineage)
+  - [5.2 Maturity Level 2: Provenance and Lineage](#52-maturity-level-2-provenance-and-lineage)
     - [Intent](#intent)
     - [Benefits](#benefits)
     - [Implementation Approach](#implementation-approach)
     - [Limitations](#limitations)
-  - [5.3 Maturity Level 3: Structured Attestations for Policy Automation {#5.3-maturity-level-3:-structured-attestations-for-policy-automation}](#53-maturity-level-3-structured-attestations-for-policy-automation-53-maturity-level-3-structured-attestations-for-policy-automation)
+  - [5.3 Maturity Level 3: Structured Attestations for Policy Automation](#53-maturity-level-3-structured-attestations-for-policy-automation)
     - [Intent](#intent)
     - [Benefits](#benefits)
     - [Implementation Approach](#implementation-approach)
     - [Limitations](#limitations)
-  - [6\. Conflicting Claims and Multi-Party Claim Reconciliation {#6.-conflicting-claims-and-multi-party-claim-reconciliation}](#6-conflicting-claims-and-multi-party-claim-reconciliation-6-conflicting-claims-and-multi-party-claim-reconciliation)
-  - [7\. Agent Considerations {#7.-agent-considerations}](#7-agent-considerations-7-agent-considerations)
-  - [8\. Incremental Adoption Strategies {#8.-incremental-adoption-strategies}](#8-incremental-adoption-strategies-8-incremental-adoption-strategies)
-  - [9\. Scope and Boundaries  {#9.-scope-and-boundaries}](#9-scope-and-boundaries--9-scope-and-boundaries)
-  - [10\. Ecosystem context {#10.-ecosystem-context}](#10-ecosystem-context-10-ecosystem-context)
-  - [11\. Conclusion {#11.-conclusion}](#11-conclusion-11-conclusion)
-  - [12\. Sources {#12.-sources}](#12-sources-12-sources)
-  - [13\. Contributors and Acknowledgements {#13.-contributors-and-acknowledgements}](#13-contributors-and-acknowledgements-13-contributors-and-acknowledgements)
-  - [14\. Appendix {#14.-appendix}](#14-appendix-14-appendix)
+  - [6\. Conflicting Claims and Multi-Party Claim Reconciliation](#6-conflicting-claims-and-multi-party-claim-reconciliation)
+  - [7\. Agent Considerations](#7-agent-considerations)
+  - [8\. Incremental Adoption Strategies](#8-incremental-adoption-strategies)
+  - [9\. Scope and Boundaries](#9-scope-and-boundaries)
+  - [10\. Ecosystem context](#10-ecosystem-context)
+  - [11\. Conclusion](#11-conclusion)
+  - [12\. Sources](#12-sources)
+  - [13\. Contributors and Acknowledgements](#13-contributors-and-acknowledgements)
+  - [14\. Appendix](#14-appendix)
     - [14.1 CoSAI Focus](#141-cosai-focus)
     - [14.2 Guidelines on usage of more advanced AI systems (e.g. large language models (LLMs), multi-modal language models. etc) for drafting documents for OASIS CoSAI:](#142-guidelines-on-usage-of-more-advanced-ai-systems-eg-large-language-models-llms-multi-modal-language-models-etc-for-drafting-documents-for-oasis-cosai)
     - [14.3 Disclaimer](#143-disclaimer)
     - [14.4 Copyright Notice](#144-copyright-notice)
 
-## 1\. Introduction {#1.-introduction}
+## 1\. Introduction
 
 Machine learning models have become integral components of modern infrastructure, from autonomous vehicles and medical diagnostics to financial algorithms and enterprise applications. This pervasive adoption brings a corresponding responsibility: ensuring that these systems can be trusted, that their origins can be verified, and that their integrity can be guaranteed throughout their lifecycle.
 
@@ -54,7 +54,7 @@ The framework's maturity levels provide guidance for both model consumers and mo
 
 This target audience for this paper includes security practitioners, AI/ML engineers, compliance teams, and executive leadership.
 
-## 2\. Rationale for an Artifact Integrity Maturity Model {#2.-rationale-for-an-artifact-integrity-maturity-model}
+## 2\. Rationale for an Artifact Integrity Maturity Model
 
 AI/ML artifacts increasingly move through distributed supply chains in which models, datasets, configurations, and process artifacts are created, transformed, and deployed across multiple teams and environments. In that context, organizations need a structured way to express different levels of assurance depending on risk, scale, and governance requirements. A maturity model provides that structure by mapping controls to progressively stronger trust guarantees.
 
@@ -62,7 +62,7 @@ This structure also reflects the direction of AI governance. Regulatory framewor
 
 By framing artifact integrity as a maturity model, AIMM provides an incremental adoption path that lets organizations apply stronger controls as risk, scale, and governance needs increase. This gives producers, consumers, and governance stakeholders a shared language for comparing assurance levels and planning adoption.
 
-## 3\. Key Terms and Definitions: AI/ML Supply Chain  {#3.-key-terms-and-definitions:-ai/ml-supply-chain}
+## 3\. Key Terms and Definitions: AI/ML Supply Chain
 
 ### Technical Terms
 
@@ -98,7 +98,7 @@ Roles introduced in this paper:
 | **Signer** | Entity that signs artifacts or attestations, binding the artifact to a verifiable identity. | \[6\] |
 | **Verifier** | Entity that validates signatures at all levels, attestations, and claims against trust policies before permitting an artifact to proceed. | \[2\]\[9\] |
 
-## 4\. Practical Application: Selecting Artifact Maturity Levels by Use Cases {#4.-practical-application:-selecting-artifact-maturity-levels-by-use-cases}
+## 4\. Practical Application: Selecting Artifact Maturity Levels by Use Cases 
 
 Building on the three maturity levels introduced in the [first paper](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/signing-ml-artifacts.md#4-maturity-levels-and-adoption)\*: [Basic Artifact Integrity](#5.1-maturity-level-1:-basic-artifact-integrity), [Provenance and Lineage](#5.2-maturity-level-2:-provenance-and-lineage), and [Structured Attestations for Policy Automation](#5.3-maturity-level-3:-structured-attestations-for-policy-automation), this section examines these levels through a practical lens that centers typical use cases.
 
@@ -116,9 +116,9 @@ However, when implementing controls specific to higher AIMM levels, to achieve t
 
 \*Some levels have been slightly renamed from the previous whitepaper to more precisely reflect their intent.
 
-## 5\. Maturity Levels {#5.-maturity-levels}
+## 5\. Maturity Levels
 
-## 5.1 Maturity Level 1: Basic Artifact Integrity {#5.1-maturity-level-1:-basic-artifact-integrity}
+## 5.1 Maturity Level 1: Basic Artifact Integrity
 
 AIMM Level 1 represents the adoption of model signing including model signing verification and validation, focusing on artifact integrity and model producer authenticity claims. In other words, signing serves to cryptographically bind a model artifact to an identified claimant producer at a specific point in time in the model’s lifecycle. 
 
@@ -157,7 +157,7 @@ Consumers verify the model signature by:
 * Verifiers / consumers need access to the original model artifact to recompute its hash.  
 * Model signatures provide only single point-in-time snapshots of model integrity, so AIMM Level 1 does not address tampering that occurs *during* model transformations.
 
-## 5.2 Maturity Level 2: Provenance and Lineage {#5.2-maturity-level-2:-provenance-and-lineage}
+## 5.2 Maturity Level 2: Provenance and Lineage
 
 AIMM Level 2 focuses on lineage tracking and provenance verification. Rather than signing and verifying/validating artifacts in isolation, organizations create cryptographically verifiable chains that attest to relationships between artifacts and the processes that connect them.
 
@@ -213,7 +213,7 @@ Consumers verify provenance and lineage by:
 * Complex provenance topologies and multi-signature validation introduce greater verification complexity than single-signature checks.  
 * AIMM Level 2 establishes *what* transformations occurred but does not enforce whether those transformations met organizational policies or quality standards. Automated policy enforcement requires a wider set of structured attestations, covered at the next maturity level.
 
-## 5.3 Maturity Level 3: Structured Attestations for Policy Automation {#5.3-maturity-level-3:-structured-attestations-for-policy-automation}
+## 5.3 Maturity Level 3: Structured Attestations for Policy Automation
 
 ### Intent
 
@@ -277,7 +277,7 @@ In multi-party or long-lived supply chains, policy evaluation results and associ
 * Fully automated policy enforcement remains an aspirational approach at the time of initial release of AIMM. Many schemas for structured attestations capable of capturing domain-specific compliance metrics, and generic model or infrastructure attributes, either do not exist yet or have not undergone rigorous legal and standardization scrutiny, because of the complexity of making the required information machine-readable. Therefore, organizations implementing AIMM Level 3 will likely need to start by adopting a hybrid approach that combines automation together with manual peer-review for difficult-to-automate policy checks, and transition to increasingly automated artifact integrity as the attestation and infrastructure ecosystems mature.  
 * Cross-cutting limits that apply at every maturity level (e.g., runtime behavioral risks, compromised signing or attestation infrastructure, training-time risks that leave no artifact trace) are addressed in the Scope and Boundaries section of this paper.
 
-## 6\. Conflicting Claims and Multi-Party Claim Reconciliation {#6.-conflicting-claims-and-multi-party-claim-reconciliation}
+## 6\. Conflicting Claims and Multi-Party Claim Reconciliation
 
 In production environments, multiple sources of truth may exist for the same artifact. For example, a model might have pipeline-generated lineage records (Level 2), automated policy evaluation results (Level 3), and independent audit checks (Level 1\) all referring to the same artifact.
 
@@ -296,7 +296,7 @@ Verifiers must reconcile these conflicting claims through systematic approaches:
 * **Hierarchy**: Higher authority or more recent claims win  
 * **Latest wins:** Most recent valid claim supersedes older ones
 
-## 7\. Agent Considerations {#7.-agent-considerations}
+## 7\. Agent Considerations
 
 As AI agents increasingly consume, transform, and deploy model artifacts autonomously, they must participate in the signing and verification ecosystem as first-class entities rather than transparent intermediaries. The principles below extend the maturity framework to agentic contexts and align with the CoSAI Agentic Identity and Access Management framework, where applicable.
 
@@ -311,7 +311,7 @@ As AI agents increasingly consume, transform, and deploy model artifacts autonom
 **Runtime execution provenance for agentic systems.**  
 In autonomous or multi-agent systems, provenance may extend beyond static artifact lineage to include runtime activities and execution-state transitions associated with workflow execution, such as delegated actions, tool invocations, retrieved context, external resources, credentialing and inter-agent communication. Because these interactions may be ephemeral, dynamically determined and/or distributed across execution boundaries, organizations may require additional provenance records to preserve traceability and accountability relationships across distributed agent-driven environments. These runtime provenance records complement the attestation and policy automation mechanisms described in AIMM Level 3\.
 
-## 8\. Incremental Adoption Strategies {#8.-incremental-adoption-strategies}
+## 8\. Incremental Adoption Strategies
 
 For most organizations today, the starting point is zero: no models signed, no verification performed. Moving from this baseline requires a phased approach that prioritizes high-impact use cases.
 
@@ -326,15 +326,15 @@ Recommended adoption sequence:
 
 **Key management foundations** underpin all adoption strategies. Signing keys must be protected from unauthorized access, trust stores curated, and rotation and revocation procedures defined before they are needed.
 
-## 9\. Scope and Boundaries  {#9.-scope-and-boundaries}
+## 9\. Scope and Boundaries
 
 Model artifact signing and attestation provides integrity (artifact not modified) and authenticity (signer identity verified). It does not guarantee correctness, safety, fairness, or benign behavior of the signed artifact itself. Runtime behavioral threats, compromised signing infrastructure, and training-time attacks that leave no artifact trace remain outside the scope of signing. Level 3 attestations narrow these gaps but do not close them entirely. Organizations should adopt model signing and attestation as layers within a defense-in-depth strategy, complemented by behavioral testing, runtime monitoring, and independent audits.
 
-## 10\. Ecosystem context {#10.-ecosystem-context}
+## 10\. Ecosystem context
 
 Several cross-industry initiatives and open-source projects provide foundational capabilities for implementing the maturity levels described in this paper. Organizations such as OWASP, NIST, OpenSSF, C2PA and CoSAI Workstreams 2-4 provide complementary software/model security frameworks and tools. For instance, MITRE ATLAS provides a comprehensive threat modeling framework for AI systems. [Sigstore](http://sigstore.dev) provides a keyless signing infrastructure, and the [model-signing project](http://github.com/sigstore/model-transparency) extends signing capabilities to ML model artifacts specifically. [SLSA](https://slsa.dev/spec/v1.2/), [Atlas CLI](https://github.com/IntelLabs/atlas-cli), and [in-toto](https://github.com/in-toto/attestation) provide attestation, provenance and lineage frameworks that can provide a basis for Level 2 and Level 3 implementations. Community-contributed implementation guides and reference architectures will become available through the CoSAI WS1 repository and related community channels.
 
-## 11\. Conclusion {#11.-conclusion}
+## 11\. Conclusion
 
 Most AI models today traverse their supply chains unsigned, unverified, and untraceable. This paper presents the Artifact Integrity Maturity Model (AIMM), a structured path from baseline integrity to comprehensive attestation and policy enforcement, organized around three maturity levels that address progressively deeper trust questions.
 
@@ -344,19 +344,19 @@ Runtime behavioral threats, training-time attacks, and compromised infrastructur
 
 CoSAI Workstream 1 will continue to evolve AIMM through community collaboration, with a focus on lowering adoption barriers through companion implementation guides and reference tooling. Organizations that invest in foundational signing capabilities now will be well positioned to meet the governance demands already emerging across regulatory frameworks worldwide.
 
-## 12\. Sources {#12.-sources}
+## 12\. Sources
 
 \[1\] [C2PA Technical Specification](https://c2pa.org%20), \[2\] [IETF RFC 9334](https://datatracker.ietf.org/doc/rfc9334/) \[3\] [in-toto Attestation Framework](https://github.com/in-toto/attestation), \[4\] ISO/IEC 27000:2024 \[5\] [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final), Zero Trust Architecture \[6\] [NIST FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final), Digital Signature Standard \[7\] [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), Security and Privacy Controls for Information Systems and Organizations \[8\] [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final), Secure Software Development Practices for Generative AI and Dual-Use \[9\] [SLSA Specification v1.2](https://slsa.dev), \[10\] CoSAI WS1, [Signing ML Artifact](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/signing-ml-artifacts.md)
 
-## 13\. Contributors and Acknowledgements {#13.-contributors-and-acknowledgements}
+## 13\. Contributors and Acknowledgements
 
-Workstream Leads
+**Workstream Leads**
 
 * Asmae Mhassni, Intel [asmae.mhassni@intel.com](mailto:asmae.mhassni@intel.com)   
 * Matt Maloney, Cohere [mattmaloney@cohere.com](mailto:mattmaloney@cohere.com)   
 * Jay White, Microsoft [jaywhite@microsoft.com](mailto:jaywhite@microsoft.com) 
 
-Editors
+**Editors**
 
 * Asmae Mhassni, Intel [asmae.mhassni@intel.com](mailto:asmae.mhassni@intel.com)  
 * Matt Maloney, Cohere [mattmaloney@cohere.com](mailto:mattmaloney@cohere.com)  
@@ -364,25 +364,25 @@ Editors
 * Marcela Melara, Intel [marcela.melara@intel.com](mailto:marcela.melara@intel.com)  
 * Arbër Salihi, Thomson Reuters [arber.salihi@thomsonreuters.com](mailto:arber.salihi@thomsonreuters.com)
 
-Contributors
+**Contributors**
 
-* Andre Elizondo, Wiz  andre.elizondo@wiz.io  
+* Andre Elizondo, Wiz  
 * Arbër Salihi, Thomson Reuters [arber.salihi@thomsonreuters.com](mailto:arber.salihi@thomsonreuters.com)  
 * Bill Stout [bstout@thealliance.ai](mailto:bstout@thealliance.ai)   
-* Daniel Rohrer drohrer@nvidia.com  
+* Daniel Rohrer, NVIDIA [drohrer@nvidia.com](drohrer@nvidia.com)  
 * David Pierce, Paypal [davpierce@paypal.com](mailto:davpierce@paypal.com)  
 * Jigisha Mavani, IBM [jigisha.mavani@ibm.com](mailto:jigisha.mavani@ibm.com)  
 * Marcela Melara, Intel [marcela.melara@intel.com](mailto:marcela.melara@intel.com)   
-* Mihai Maruseac, OpenAI mihai.maruseac@gmail.com  
-* Ralph Bean, Red Hat rbean@redhat.com  
+* Mihai Maruseac, OpenAI  
+* Ralph Bean, Red Hat [rbean@redhat.com](rbean@redhat.com)  
 * Rithikha Rajamohan, EQTY Lab [rithikha.rajamohan@eqtylab.io](mailto:rithikha.rajamohan@eqtylab.io)
 
-Technical Steering Committee Co-Chairs
+**Technical Steering Committee Co-Chairs**
 
 * Akila Srinivasan, Anthropic [akila@anthropic.com](mailto:akila@anthropic.com)  
 * J.R. Rao, IBM [jrrao@us.ibm.com](mailto:jrrao@us.ibm.com)
 
-## 14\. Appendix {#14.-appendix}
+## 14\. Appendix
 
 ### 14.1 CoSAI Focus
 
@@ -401,7 +401,6 @@ tl;dr: CoSAI contributions are actions performed by humans, who are responsible 
 
 ### 14.3 Disclaimer
 The views represented in this paper do not necessarily represent the views of all CoSAI members, including reviewers and their organizations. 
-
 
 ### 14.4 Copyright Notice
 
