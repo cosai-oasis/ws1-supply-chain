@@ -346,7 +346,25 @@ CoSAI Workstream 1 will continue to evolve AIMM through community collaboration,
 
 ## 12\. Sources
 
-\[1\] [C2PA Technical Specification](https://c2pa.org%20), \[2\] [IETF RFC 9334](https://datatracker.ietf.org/doc/rfc9334/) \[3\] [in-toto Attestation Framework](https://github.com/in-toto/attestation), \[4\] ISO/IEC 27000:2024 \[5\] [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final), Zero Trust Architecture \[6\] [NIST FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final), Digital Signature Standard \[7\] [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), Security and Privacy Controls for Information Systems and Organizations \[8\] [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final), Secure Software Development Practices for Generative AI and Dual-Use \[9\] [SLSA Specification v1.2](https://slsa.dev), \[10\] CoSAI WS1, [Signing ML Artifact](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/signing-ml-artifacts.md)
+\[1\] [C2PA Technical Specification](https://c2pa.org%20)
+
+\[2\] [IETF RFC 9334](https://datatracker.ietf.org/doc/rfc9334/) 
+
+\[3\] [in-toto Attestation Framework](https://github.com/in-toto/attestation)
+
+\[4\] ISO/IEC 27000:2024
+
+\[5\] [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final) Zero Trust Architecture 
+
+\[6\] [NIST FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final), Digital Signature Standard 
+
+\[7\] [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), Security and Privacy Controls for Information Systems and Organizations 
+
+\[8\] [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final), Secure Software Development Practices for Generative AI and Dual-Use 
+
+\[9\] [SLSA Specification v1.2](https://slsa.dev)
+
+\[10\] CoSAI WS1, [Signing ML Artifacts](https://github.com/cosai-oasis/ws1-supply-chain/blob/main/signing-ml-artifacts.md)
 
 ## 13\. Contributors and Acknowledgements
 
