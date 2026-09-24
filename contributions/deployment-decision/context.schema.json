@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LOCAL relying-party context; never accepted from the evidence producer",
+  "type": "object",
+  "properties": {
+    "now": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+    },
+    "artifact_hex": {
+      "type": "string",
+      "pattern": "^([0-9a-f]{2})+(?![\\s\\S])"
+    },
+    "target_environment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "challenge": {
+      "type": "string",
+      "minLength": 1
+    },
+    "usage": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "region": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "evaluation_domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "test_measurement": {
+          "type": "object",
+          "properties": {
+            "domain": {
+              "type": "string",
+              "minLength": 1
+            },
+            "algorithm": {
+              "enum": [
+                "sha256",
+                "sha384"
+              ]
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "domain",
+            "algorithm",
+            "digest"
+          ],
+          "additionalProperties": false
+        },
+        "serving_measurement": {
+          "type": "object",
+          "properties": {
+            "domain": {
+              "type": "string",
+              "minLength": 1
+            },
+            "algorithm": {
+              "enum": [
+                "sha256",
+                "sha384"
+              ]
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "domain",
+            "algorithm",
+            "digest"
+          ],
+          "additionalProperties": false
+        },
+        "keys": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "issuer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "key_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "public_key": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+              },
+              "roles": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "evaluation",
+                    "test_environment",
+                    "serving_environment",
+                    "approval"
+                  ]
+                }
+              },
+              "evaluation_domains": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "valid_from": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+              },
+              "valid_until": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+              },
+              "revocation": {
+                "enum": [
+                  "good",
+                  "revoked",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "issuer",
+              "key_id",
+              "public_key",
+              "roles",
+              "evaluation_domains",
+              "valid_from",
+              "valid_until",
+              "revocation"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "evaluation_domain",
+        "required_exclusions",
+        "test_measurement",
+        "serving_measurement",
+        "keys"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "now",
+    "artifact_hex",
+    "target_environment",
+    "challenge",
+    "usage",
+    "region",
+    "policy"
+  ],
+  "additionalProperties": false
+}

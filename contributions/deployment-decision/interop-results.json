@@ -1,0 +1,91 @@
+{
+  "status": "pass",
+  "candidates": 82,
+  "matched": 82,
+  "wire_checks": 26,
+  "cli_checks": 4,
+  "python": "3.11.16",
+  "libraries": {
+    "jsonschema": "4.26.0",
+    "rfc8785": "0.1.4",
+    "PyNaCl": "1.6.2"
+  },
+  "vector_sha256": "317cffee10c02c766acf65837fc9bb870c4f589a1819b4269cac699a6577ba81",
+  "source_sha256": {
+    "verify.py": "c3d44d01027e22af3f37fd905b56509135e8769ae2131e4852727e9ccbce2abb",
+    "wire.mjs": "e7348470ef2513ea612c58e5903ea84cddbd31ef58e31d6c10e3b988f6507f56",
+    "check-wire.mjs": "88125e82cfea161bdfc816aede49be56b1b3469423be4cf83f0ec03c36f0fd94",
+    "wire-worker.mjs": "c5a2086977cdc4a3ed5ad9e819c0d0a8bff2436d378aaa35cdf1102d5c0114b6",
+    "test_interop.py": "9a09cbb03e7480aed8215d9c644c2e532e712f541d48bccc88d182d2ee766435",
+    "test_mutations.py": "b45bed1271b2e333cfbf1d1f76970b81fed894564ce89964b4ca86e630606138",
+    "requirements.txt": "faf951f15d2986d9a4bae15b86aa0901a74665b730efde241b2269bc70113c42"
+  },
+  "limits": [
+    "Both implementations authored in this contribution; no independent external review.",
+    "Shared contract, schemas and authored corpus; matching outcomes can preserve a shared specification error."
+  ],
+  "additional_mutants_killed": 9,
+  "additional_mutations": {
+    "python-signature": [
+      "bad-signature-evaluation",
+      "bad-signature-test_environment",
+      "bad-signature-serving_environment",
+      "bad-signature-approval"
+    ],
+    "python-artifact": [
+      "wrong-weight-bytes",
+      "wrong-subject-evaluation",
+      "wrong-domain-evaluation",
+      "wrong-subject-test_environment",
+      "wrong-domain-test_environment",
+      "wrong-subject-serving_environment",
+      "wrong-domain-serving_environment",
+      "wrong-subject-approval",
+      "wrong-domain-approval"
+    ],
+    "python-claim-and-key-time": [
+      "expired-evaluation",
+      "expired-test_environment",
+      "expired-serving_environment",
+      "expired-approval",
+      "expired-authority",
+      "future-claim"
+    ],
+    "python-condition": [
+      "wrong-usage",
+      "wrong-region",
+      "failure-with-missing-evidence"
+    ],
+    "python-measurement": [
+      "wrong-measurement-test_environment",
+      "wrong-measurement-domain-test_environment",
+      "wrong-measurement-serving_environment",
+      "wrong-measurement-domain-serving_environment"
+    ],
+    "python-binding": [
+      "wrong-test-binding",
+      "wrong-approval-binding"
+    ],
+    "python-unknown-admission": [
+      "missing-evaluation",
+      "revocation-unknown-evaluation",
+      "missing-test_environment",
+      "revocation-unknown-test_environment",
+      "missing-serving_environment",
+      "revocation-unknown-serving_environment",
+      "missing-approval",
+      "revocation-unknown-approval",
+      "unknown-evaluation",
+      "unknown-appraisal-test_environment",
+      "unknown-appraisal-serving_environment",
+      "unknown-usage",
+      "unknown-region"
+    ],
+    "python-duplicate-key": [
+      "escaped-duplicate"
+    ],
+    "node-duplicate-key": [
+      "escaped-duplicate"
+    ]
+  }
+}
