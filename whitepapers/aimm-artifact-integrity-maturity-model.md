@@ -1,5 +1,14 @@
- 
+---
+title: "AIMM: Artifact Integrity Maturity Model for AI/ML Supply Chain Trust and Provenance"
+author: "Workstream 1: Software Supply Chain Security for AI Systems"
+date: 07 September 2026
+---
+
 # AIMM: Artifact Integrity Maturity Model for AI/ML Supply Chain Trust and Provenance
+
+OASIS Open Project : [Coalition for Secure AI (CoSAI)](https://github.com/cosai-oasis) [Workstream 1: Software Supply Chain Security for AI Systems](https://github.com/cosai-oasis/ws1-supply-chain)
+
+_Approved by the CoSAI Project Governing Board on 07 September 2026_
 
 ## Table of contents
 
