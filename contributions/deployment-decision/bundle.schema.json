@@ -1,0 +1,579 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Proposed deployment evidence bundle, experimental v0.1",
+  "type": "object",
+  "properties": {
+    "profile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluation": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "const": "evaluation"
+                },
+                "issuer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "key_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "valid_from": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "valid_until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "subject": {
+                  "type": "object",
+                  "properties": {
+                    "domain": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    }
+                  },
+                  "required": [
+                    "domain",
+                    "sha256"
+                  ],
+                  "additionalProperties": false
+                },
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "evaluation_domain": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "test_environment_digest": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    },
+                    "harness_digest": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    },
+                    "log_digest": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    },
+                    "outcome": {
+                      "enum": [
+                        "pass",
+                        "fail",
+                        "not_established"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "evaluation_domain",
+                    "test_environment_digest",
+                    "harness_digest",
+                    "log_digest",
+                    "outcome"
+                  ],
+                  "additionalProperties": false
+                },
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "profile",
+                "kind",
+                "issuer",
+                "key_id",
+                "valid_from",
+                "valid_until",
+                "subject",
+                "details",
+                "annotations"
+              ],
+              "additionalProperties": false
+            },
+            "signature": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "payload",
+            "signature"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "test_environment": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "const": "test_environment"
+                },
+                "issuer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "key_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "valid_from": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "valid_until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "subject": {
+                  "type": "object",
+                  "properties": {
+                    "domain": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    }
+                  },
+                  "required": [
+                    "domain",
+                    "sha256"
+                  ],
+                  "additionalProperties": false
+                },
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "environment_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "measurement": {
+                      "type": "object",
+                      "properties": {
+                        "domain": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "algorithm": {
+                          "enum": [
+                            "sha256",
+                            "sha384"
+                          ]
+                        },
+                        "digest": {
+                          "type": "string",
+                          "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
+                        }
+                      },
+                      "required": [
+                        "domain",
+                        "algorithm",
+                        "digest"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "adversary_exclusions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    },
+                    "nonce": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "outcome": {
+                      "enum": [
+                        "pass",
+                        "fail",
+                        "not_established"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "environment_id",
+                    "measurement",
+                    "adversary_exclusions",
+                    "nonce",
+                    "outcome"
+                  ],
+                  "additionalProperties": false
+                },
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "profile",
+                "kind",
+                "issuer",
+                "key_id",
+                "valid_from",
+                "valid_until",
+                "subject",
+                "details",
+                "annotations"
+              ],
+              "additionalProperties": false
+            },
+            "signature": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "payload",
+            "signature"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "serving_environment": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "const": "serving_environment"
+                },
+                "issuer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "key_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "valid_from": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "valid_until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "subject": {
+                  "type": "object",
+                  "properties": {
+                    "domain": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    }
+                  },
+                  "required": [
+                    "domain",
+                    "sha256"
+                  ],
+                  "additionalProperties": false
+                },
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "environment_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "measurement": {
+                      "type": "object",
+                      "properties": {
+                        "domain": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "algorithm": {
+                          "enum": [
+                            "sha256",
+                            "sha384"
+                          ]
+                        },
+                        "digest": {
+                          "type": "string",
+                          "pattern": "^([0-9a-f]{64}|[0-9a-f]{96})(?![\\s\\S])"
+                        }
+                      },
+                      "required": [
+                        "domain",
+                        "algorithm",
+                        "digest"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "adversary_exclusions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    },
+                    "nonce": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "outcome": {
+                      "enum": [
+                        "pass",
+                        "fail",
+                        "not_established"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "environment_id",
+                    "measurement",
+                    "adversary_exclusions",
+                    "nonce",
+                    "outcome"
+                  ],
+                  "additionalProperties": false
+                },
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "profile",
+                "kind",
+                "issuer",
+                "key_id",
+                "valid_from",
+                "valid_until",
+                "subject",
+                "details",
+                "annotations"
+              ],
+              "additionalProperties": false
+            },
+            "signature": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "payload",
+            "signature"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "approval": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "properties": {
+                "profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "const": "approval"
+                },
+                "issuer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "key_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "valid_from": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "valid_until": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T[0-2]\\d:[0-5]\\d:[0-5]\\dZ(?![\\s\\S])"
+                },
+                "subject": {
+                  "type": "object",
+                  "properties": {
+                    "domain": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    }
+                  },
+                  "required": [
+                    "domain",
+                    "sha256"
+                  ],
+                  "additionalProperties": false
+                },
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "evaluation_digest": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+                    },
+                    "serving_environment_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "decision": {
+                      "enum": [
+                        "approve",
+                        "deny"
+                      ]
+                    },
+                    "conditions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "enum": [
+                              "usage",
+                              "region"
+                            ]
+                          },
+                          "op": {
+                            "const": "eq"
+                          },
+                          "value": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "field",
+                          "op",
+                          "value"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "evaluation_digest",
+                    "serving_environment_id",
+                    "decision",
+                    "conditions"
+                  ],
+                  "additionalProperties": false
+                },
+                "annotations": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "profile",
+                "kind",
+                "issuer",
+                "key_id",
+                "valid_from",
+                "valid_until",
+                "subject",
+                "details",
+                "annotations"
+              ],
+              "additionalProperties": false
+            },
+            "signature": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{128}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "payload",
+            "signature"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "profile",
+    "evaluation",
+    "test_environment",
+    "serving_environment",
+    "approval"
+  ],
+  "additionalProperties": false
+}

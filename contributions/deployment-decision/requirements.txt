@@ -1,0 +1,12 @@
+# Isolated Python verifier and attestation adapter dependencies, including transitives.
+attrs==26.1.0
+cffi==2.1.1
+cryptography==50.0.1
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+pycparser==3.0
+PyNaCl==1.6.2
+referencing==0.37.0
+rfc8785==0.1.4
+rpds-py==2026.6.3
+typing_extensions==4.16.0

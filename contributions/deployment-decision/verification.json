@@ -1,0 +1,239 @@
+{
+  "status": "pass",
+  "runtime": "v24.18.1",
+  "platform": "win32",
+  "candidates": 82,
+  "matched": 82,
+  "checks": [
+    "generated artifacts reproduce byte for byte",
+    "unique complete corpus with an accepting twin for every refusal",
+    "every candidate matches exact status, verdict, admission and reason codes",
+    "deeply nested malformed JSON returns a processing error without throwing",
+    "object-property arrival order does not change any result",
+    "condition order does not skip the last condition",
+    "JCS UTF-16 sorting and UTF-8 text have a literal independent expectation",
+    "baseline signatures verify and fail without the domain prefix",
+    "checker does not receive or read expected answers",
+    "always-admit and always-refuse implementations both fail the corpus",
+    "read-only runner succeeds without changing committed vectors",
+    "runner rejects changed or incomplete fixtures and preserves their bytes"
+  ],
+  "mutantsKilled": 25,
+  "mutations": [
+    {
+      "name": "signature",
+      "detectedBy": [
+        "bad-signature-evaluation",
+        "bad-signature-test_environment",
+        "bad-signature-serving_environment",
+        "bad-signature-approval"
+      ]
+    },
+    {
+      "name": "authority",
+      "detectedBy": [
+        "wrong-key-role",
+        "wrong-authority-domain"
+      ]
+    },
+    {
+      "name": "artifact-digest",
+      "detectedBy": [
+        "wrong-weight-bytes",
+        "wrong-subject-evaluation",
+        "wrong-subject-test_environment",
+        "wrong-subject-serving_environment",
+        "wrong-subject-approval"
+      ]
+    },
+    {
+      "name": "artifact-domain",
+      "detectedBy": [
+        "wrong-domain-evaluation",
+        "wrong-domain-test_environment",
+        "wrong-domain-serving_environment",
+        "wrong-domain-approval"
+      ]
+    },
+    {
+      "name": "claim-time",
+      "detectedBy": [
+        "expired-evaluation",
+        "expired-test_environment",
+        "expired-serving_environment",
+        "expired-approval",
+        "future-claim"
+      ]
+    },
+    {
+      "name": "authority-time",
+      "detectedBy": [
+        "expired-authority"
+      ]
+    },
+    {
+      "name": "revoked",
+      "detectedBy": [
+        "revoked-evaluator"
+      ]
+    },
+    {
+      "name": "unknown-revocation",
+      "detectedBy": [
+        "revocation-unknown-evaluation",
+        "revocation-unknown-test_environment",
+        "revocation-unknown-serving_environment",
+        "revocation-unknown-approval"
+      ]
+    },
+    {
+      "name": "measurement",
+      "detectedBy": [
+        "wrong-measurement-test_environment",
+        "wrong-measurement-domain-test_environment",
+        "wrong-measurement-serving_environment",
+        "wrong-measurement-domain-serving_environment"
+      ]
+    },
+    {
+      "name": "measurement-shape",
+      "detectedBy": [
+        "wrong-measurement-width",
+        "malformed-width-before-signature-test_environment",
+        "malformed-width-before-authority-test_environment",
+        "malformed-width-before-signature-serving_environment",
+        "malformed-width-before-authority-serving_environment"
+      ]
+    },
+    {
+      "name": "validity-order",
+      "detectedBy": [
+        "reversed-validity",
+        "malformed-window-before-profile"
+      ]
+    },
+    {
+      "name": "threat",
+      "detectedBy": [
+        "missing-threat-test_environment",
+        "missing-threat-serving_environment",
+        "physical-owner-required"
+      ]
+    },
+    {
+      "name": "evaluation-domain",
+      "detectedBy": [
+        "wrong-evaluation-domain"
+      ]
+    },
+    {
+      "name": "test-binding",
+      "detectedBy": [
+        "wrong-test-binding"
+      ]
+    },
+    {
+      "name": "target",
+      "detectedBy": [
+        "wrong-target"
+      ]
+    },
+    {
+      "name": "challenge",
+      "detectedBy": [
+        "replayed-serving-evidence"
+      ]
+    },
+    {
+      "name": "approval-binding",
+      "detectedBy": [
+        "wrong-approval-binding"
+      ]
+    },
+    {
+      "name": "approval-target",
+      "detectedBy": [
+        "wrong-approval-target"
+      ]
+    },
+    {
+      "name": "approval-denial",
+      "detectedBy": [
+        "denied-approval"
+      ]
+    },
+    {
+      "name": "condition-failure",
+      "detectedBy": [
+        "wrong-usage",
+        "wrong-region",
+        "failure-with-missing-evidence"
+      ]
+    },
+    {
+      "name": "condition-unknown",
+      "detectedBy": [
+        "unknown-usage",
+        "unknown-region"
+      ]
+    },
+    {
+      "name": "missing-claim",
+      "detectedBy": [
+        "missing-evaluation",
+        "missing-test_environment",
+        "missing-serving_environment",
+        "missing-approval",
+        "failure-with-missing-evidence"
+      ]
+    },
+    {
+      "name": "unknown-profile",
+      "detectedBy": [
+        "unknown-bundle-profile",
+        "unknown-signed-profile"
+      ]
+    },
+    {
+      "name": "last-condition",
+      "detectedBy": [
+        "wrong-region",
+        "unknown-region"
+      ]
+    },
+    {
+      "name": "not-established-admission",
+      "detectedBy": [
+        "missing-evaluation",
+        "revocation-unknown-evaluation",
+        "missing-test_environment",
+        "revocation-unknown-test_environment",
+        "missing-serving_environment",
+        "revocation-unknown-serving_environment",
+        "missing-approval",
+        "revocation-unknown-approval",
+        "unknown-evaluation",
+        "unknown-appraisal-test_environment",
+        "unknown-appraisal-serving_environment",
+        "unknown-usage",
+        "unknown-region"
+      ]
+    }
+  ],
+  "vectorSha256": "317cffee10c02c766acf65837fc9bb870c4f589a1819b4269cac699a6577ba81",
+  "artifactSha256": {
+    "checker.mjs": "fc4df337bccebd57ce694161781549d9d3786df5071ee06de0235c232882db7a",
+    "bundle.schema.json": "6b4a8d99bffb472a16d421e8c65c4ff2266274ba1f3aea870a2d63d0229de843",
+    "context.schema.json": "c8a57132a3575e535a2c38dba7d542b4a20abba4e16042c7162468d7e02b00b4",
+    "schema.mjs": "80f94ef68c605eb7136321558342131a4952ae4357ef248243b36b8f233cc78c",
+    "generate.mjs": "08be11a84f47cae0bb16c3fd3def13c9b012dd37b7164fa606f44b9f85201913",
+    "run.mjs": "6f21a345ef48b934fb89e09c345546cda21bdb8d00e7d823f7e500e46cc1079d",
+    "test.mjs": "a49a030053a3c63941b966a2ec06a5def84c4928b471b68445abff0d59ffbe2b",
+    "package-lock.json": "800dbab96cddad689b19f7cfa4b87ae6f1e796ca5fa80d24a09a03c66eaaf0b9",
+    "corpus-manifest.json": "e89e769f8d57511acfa3ea5811cf7fce204c9197085e265860920b0648b5737f"
+  },
+  "limits": [
+    "One locally authored implementation and corpus; not independent interoperability.",
+    "Synthetic platform-appraisal statements; no vendor quote, hardware, network revocation or deployment gate exercised."
+  ]
+}
